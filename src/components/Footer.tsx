@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" 
+                src="/lovable-uploads/7a5a855a-9ed8-4b8a-b903-e0c998e4748f.png" 
                 alt="East Street Advisory Logo" 
                 className="h-16"
               />
