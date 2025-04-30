@@ -18,7 +18,7 @@ const CtaSection: React.FC<CtaSectionProps> = ({
   return (
     <section className="bg-eaststreet-beige py-16">
       <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-eaststreet-brown mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold font-serif text-eaststreet-brown mb-6">
           {title}
         </h2>
         <p className="text-lg mb-8 text-eaststreet-gray">

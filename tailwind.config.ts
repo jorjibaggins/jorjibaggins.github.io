@@ -102,7 +102,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				serif: ['Georgia', 'serif'],
+				serif: ['Playfair Display', 'Georgia', 'serif'],
 			}
 		}
 	},
