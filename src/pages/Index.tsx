@@ -14,7 +14,7 @@ const Index = () => {
             <div className="lg:w-1/2 mb-10 lg:mb-0">
               <div className="mb-8">
                 <img 
-                  src="/lovable-uploads/d1cb8248-e8f2-4091-ab0b-872d4946b57b.png" 
+                  src="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" 
                   alt="East Street Advisory Logo" 
                   className="h-24 md:h-32 mb-6"
                 />
