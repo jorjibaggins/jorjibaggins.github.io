@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				eaststreet: {
+					'beige': '#F5E8D9',
+					'brown': '#4B2C20',
+					'light-brown': '#8A654E',
+					'cream': '#FFF8F0',
+					'gold': '#D4AF37',
+					'gray': '#6B7280',
+					'light-gray': '#F3F4F6',
 				}
 			},
 			borderRadius: {
@@ -89,6 +99,10 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Georgia', 'serif'],
 			}
 		}
 	},
