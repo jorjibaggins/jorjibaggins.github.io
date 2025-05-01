@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -7,40 +8,40 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-eaststreet-beige to-white pt-40 pb-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 mb-10 lg:mb-0">
-              <div className="mb-8">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-eaststreet-brown mb-4">
-                  Singapore's Premier SME M&A Advisory Firm
-                </h1>
-                <p className="text-xl md:text-2xl text-eaststreet-gray max-w-3xl">
-                  Maximizing business value through strategic mergers, acquisitions, and exit planning for Singapore's small and medium enterprises
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+      <section className="relative pt-40 pb-24">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/272bd5d9-14bc-4ae8-867a-1f28040eaf3e.png" 
+            alt="Singapore skyline at night" 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay to improve text readability */}
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="max-w-3xl mb-10">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white mb-4">
+                Singapore's Premier SME M&A Advisory Firm
+              </h1>
+              <p className="text-xl md:text-2xl text-white mb-8">
+                Maximizing business value through strategic mergers, acquisitions, and exit planning for Singapore's small and medium enterprises
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link to="/contact" className="btn-primary">
                   Schedule Consultation
                 </Link>
-                <Link to="/services" className="btn-secondary">
+                <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-eaststreet-brown">
                   Explore Our Services
                 </Link>
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <div className="rounded-lg overflow-hidden shadow-xl">
-                <img 
-                  src="/lovable-uploads/272bd5d9-14bc-4ae8-867a-1f28040eaf3e.png" 
-                  alt="Singapore skyline at night" 
-                  className="w-full h-auto object-cover"
-                />
               </div>
             </div>
           </div>
         </div>
         
-        {/* Decorative triangle */}
+        {/* Decorative triangle - adjusted to be visible against the background image */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-16 h-16 rotate-45 bg-white border border-eaststreet-gold z-10"></div>
       </section>
 
