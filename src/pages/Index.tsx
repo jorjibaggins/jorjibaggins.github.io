@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -8,7 +7,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24">
+      <section className="relative pt-20 pb-24">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -23,7 +22,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center text-center">
             <div className="max-w-3xl mb-10">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4">
                 Singapore's Premier SME M&A Advisory Firm
               </h1>
               <p className="text-xl md:text-2xl text-white mb-8">
@@ -33,7 +32,7 @@ const Index = () => {
                 <Link to="/contact" className="btn-primary">
                   Schedule Consultation
                 </Link>
-                <Link to="/services" className="btn-secondary border-white text-white hover:bg-white hover:text-eaststreet-brown">
+                <Link to="/services" className="bg-eaststreet-beige text-eaststreet-brown px-6 py-3 rounded-md hover:bg-eaststreet-gold transition-colors duration-300 inline-block font-medium">
                   Explore Our Services
                 </Link>
               </div>
@@ -92,7 +91,7 @@ const Index = () => {
             <div className="service-card flex flex-col h-full">
               <div className="h-16 w-16 flex items-center justify-center rounded-full bg-eaststreet-beige mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-eaststreet-brown">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold font-serif text-eaststreet-brown mb-3">Exit Strategy Planning</h3>
