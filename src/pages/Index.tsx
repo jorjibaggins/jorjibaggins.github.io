@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -6,8 +7,8 @@ import CtaSection from '@/components/CtaSection';
 const Index = () => {
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-24">
+      {/* Hero Section - Added pt-28 to push content below the navbar */}
+      <section className="relative pt-28 pb-24">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
