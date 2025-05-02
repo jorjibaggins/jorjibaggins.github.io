@@ -22,12 +22,32 @@ const ContactForm = () => {
   };
 
   // Form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Create email submission
+      const emailData = {
+        to: 'contact@eaststreetadvisory.com',
+        subject: `Contact Form Submission from ${formData.name}`,
+        message: `
+          Name: ${formData.name}
+          Email: ${formData.email}
+          Phone: ${formData.phone || 'Not provided'}
+          Company: ${formData.company || 'Not provided'}
+          
+          Message:
+          ${formData.message}
+        `
+      };
+      
+      // Send email using a form submission service (mailto: for demo purposes)
+      const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.message)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
       toast({
         title: "Message Sent Successfully",
         description: "Thank you for contacting East Street Advisory. We'll be in touch soon.",
@@ -41,9 +61,16 @@ const ContactForm = () => {
         company: '',
         message: ''
       });
-      
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
