@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -8,7 +7,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section - Increased padding-top to push content further down below the navbar */}
-      <section className="relative pt-28 pb-24">
+      <section className="relative pt-40 pb-24">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
