@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section - Added pt-28 to push content below the navbar */}
-      <section className="relative pt-35 pb-24">
+      <section className="relative pt-14 pb-24">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
