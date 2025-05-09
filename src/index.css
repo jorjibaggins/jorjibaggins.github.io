@@ -52,7 +52,7 @@
 }
 
 .section-heading {
-  @apply text-3xl md:text-4xl font-bold text-eaststreet-brown relative pb-4 mb-8;
+  @apply text-3xl md:text-4xl text-eaststreet-brown relative pb-4 mb-8;
 }
 
 .section-heading::after {

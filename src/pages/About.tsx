@@ -9,7 +9,7 @@ const About = () => {
       {/* Page Header */}
       <section className="bg-eaststreet-beige py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-eaststreet-brown mb-6">
+          <h1 className="text-4xl md:text-5xl text-eaststreet-brown mb-6">
             About East Street Advisory
           </h1>
           <p className="text-xl text-eaststreet-gray max-w-4xl mx-auto">
