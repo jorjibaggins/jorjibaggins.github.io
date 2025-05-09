@@ -44,6 +44,7 @@ const Navbar = () => {
             <NavLink to="/services" label="Services" />
             <NavLink to="/about" label="About Us" />
             <NavLink to="/case-studies" label="Case Studies" />
+            <NavLink to="/valuation" label="Free Valuation" />
             <NavLink to="/contact" label="Contact" />
           </div>
 
@@ -87,6 +88,7 @@ const Navbar = () => {
               <MobileNavLink to="/services" label="Services" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/about" label="About Us" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/case-studies" label="Case Studies" onClick={() => setIsOpen(false)} />
+              <MobileNavLink to="/valuation" label="Free Valuation" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/contact" label="Contact" onClick={() => setIsOpen(false)} />
             </div>
           </div>
