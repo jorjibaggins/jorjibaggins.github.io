@@ -29,10 +29,10 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Updated with new image */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" 
+              src="/lovable-uploads/89f16988-aa42-4270-8891-37f26fe4a40d.png" 
               alt="East Street Advisory Logo" 
               className="h-12 md:h-16"
             />

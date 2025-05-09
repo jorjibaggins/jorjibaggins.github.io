@@ -9,11 +9,11 @@ const Footer = () => {
     <footer className="bg-eaststreet-brown text-white pt-12 pb-6">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Column 1: Logo and Brief */}
+          {/* Column 1: Logo and Brief - Updated with new logo */}
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/4e6cd7b0-88f2-4ab0-b1e4-676aa2054784.png" 
+                src="/lovable-uploads/89f16988-aa42-4270-8891-37f26fe4a40d.png" 
                 alt="East Street Advisory Logo" 
                 className="h-16"
               />
