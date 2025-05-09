@@ -16,7 +16,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   return (
     <h2 
       className={cn(
-        "section-heading font-serif",
+        "section-heading font-serif font-normal",
         centered && "text-center center-heading",
         className
       )}
