@@ -20,6 +20,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         centered && "text-center center-heading",
         className
       )}
+      style={{ fontFamily: 'Forum, serif' }}
     >
       {title}
     </h2>
