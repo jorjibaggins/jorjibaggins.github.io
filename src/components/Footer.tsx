@@ -59,7 +59,7 @@ const Footer = () => {
                 <strong>Phone:</strong> +65 6123 4567
               </p>
               <p className="mb-2">
-                <strong>Email:</strong> info@eaststreetadvisory.sg
+                <strong>Email:</strong> contact@eaststreetadvisory.com
               </p>
             </address>
           </div>

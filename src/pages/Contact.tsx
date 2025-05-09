@@ -120,7 +120,7 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-bold text-eaststreet-brown mb-3">What size businesses do you work with?</h3>
               <p className="text-eaststreet-gray">
-                We specialize in SMEs with annual revenues between S$5 million and S$100 million across various industries in Singapore and Southeast Asia.
+                We specialize in SMEs with annual revenues between S$1 million and S$100 million across various industries in Singapore and Southeast Asia.
               </p>
             </div>
             
