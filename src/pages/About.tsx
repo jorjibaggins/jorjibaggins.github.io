@@ -25,13 +25,13 @@ const About = () => {
             <div>
               <SectionHeading title="Our Story" />
               <p className="mb-4 text-eaststreet-gray">
-                East Street Advisory was founded in 2010 with a clear mission: to provide world-class M&A advisory services specifically tailored to the unique needs of Singapore's SME business community.
+                East Street's mission is to provide world-class M&A advisory services specifically tailored to the unique needs of Singapore's SME business community.
               </p>
               <p className="mb-4 text-eaststreet-gray">
                 After observing that smaller businesses were often underserved by traditional investment banks and advisory firms, our founders combined their extensive experience in finance, strategy consulting, and entrepreneurship to create a boutique firm that delivers personalized, high-quality M&A advice to business owners.
               </p>
               <p className="text-eaststreet-gray">
-                Today, East Street Advisory has grown to become a trusted partner for SME business transactions across Singapore and Southeast Asia, with a track record of successful deals across numerous industries and a reputation for integrity, expertise, and exceptional client service.
+                Today, East Street has grown to become a trusted partner for SME business transactions across Singapore and Southeast Asia, with a track record of successful deals across numerous industries and a reputation for integrity, expertise, and exceptional client service.
               </p>
             </div>
             <div className="relative">

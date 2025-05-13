@@ -59,7 +59,7 @@ const Footer = () => {
                 Singapore 048616
               </p>
               <p className="mb-2">
-                <strong>Phone:</strong> +65 6123 4567
+                <strong>Phone:</strong> +65 9156 6987
               </p>
               <p className="mb-2">
                 <strong>Email:</strong> contact@eaststreetadvisory.com
