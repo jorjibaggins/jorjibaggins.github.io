@@ -92,65 +92,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading title="Our Leadership Team" centered={true} />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {/* Team Member 1 */}
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <div className="absolute inset-0 rounded-full bg-eaststreet-beige"></div>
-                <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                  <svg className="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-eaststreet-brown">John Chen</h3>
-              <p className="text-sm text-eaststreet-gold mb-2">Founding Partner</p>
-              <p className="text-eaststreet-gray px-4">
-                With over 20 years of investment banking and private equity experience, John leads the firm's strategic direction and key client relationships.
-              </p>
-            </div>
-            
-            {/* Team Member 2 */}
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <div className="absolute inset-0 rounded-full bg-eaststreet-beige"></div>
-                <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                  <svg className="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-eaststreet-brown">Sarah Wong</h3>
-              <p className="text-sm text-eaststreet-gold mb-2">Managing Partner</p>
-              <p className="text-eaststreet-gray px-4">
-                Sarah specializes in transaction execution and leads our technology and healthcare practice with extensive industry expertise.
-              </p>
-            </div>
-            
-            {/* Team Member 3 */}
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6">
-                <div className="absolute inset-0 rounded-full bg-eaststreet-beige"></div>
-                <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                  <svg className="w-full h-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-eaststreet-brown">Rajiv Mehta</h3>
-              <p className="text-sm text-eaststreet-gold mb-2">Partner, Valuations</p>
-              <p className="text-eaststreet-gray px-4">
-                Rajiv heads our valuation practice, bringing former Big Four accounting expertise and deep financial analysis skills.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-16 bg-eaststreet-cream">
         <div className="container mx-auto px-4 md:px-6">

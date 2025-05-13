@@ -53,18 +53,14 @@ const Footer = () => {
           {/* Column 3: Contact Information */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <address className="not-italic text-sm opacity-80">
-              <p className="mb-2">
-                <strong>Address:</strong> 1 Raffles Place, #20-01<br />
-                Singapore 048616
-              </p>
+            <div className="text-sm opacity-80">
               <p className="mb-2">
                 <strong>Phone:</strong> +65 9156 6987
               </p>
               <p className="mb-2">
                 <strong>Email:</strong> contact@eaststreetadvisory.com
               </p>
-            </address>
+            </div>
           </div>
         </div>
 
