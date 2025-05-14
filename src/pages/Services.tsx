@@ -59,7 +59,6 @@ const Services = () => {
                 <li>Industry-specific valuation methodologies</li>
                 <li>Market comparables and precedent transaction analysis</li>
                 <li>Discounted cash flow analysis</li>
-                <li>Valuation reports for transaction, tax, or strategic planning purposes</li>
               </ul>
               <p className="text-eaststreet-gray">
                 Our valuations consider both quantitative financial data and qualitative factors specific to your business and industry to deliver accurate, reliable assessments.
@@ -85,7 +84,6 @@ const Services = () => {
                 <li>Customized exit timeline development</li>
                 <li>Business value enhancement strategies</li>
                 <li>Succession planning for family businesses</li>
-                <li>Tax efficiency and wealth preservation planning</li>
                 <li>Post-exit transition support</li>
               </ul>
               <p className="text-eaststreet-gray">

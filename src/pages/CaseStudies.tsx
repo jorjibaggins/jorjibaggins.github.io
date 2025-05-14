@@ -166,7 +166,7 @@ const CaseStudies = () => {
                   </div>
                   <div className="bg-eaststreet-cream p-4 rounded-lg">
                     <p className="italic text-eaststreet-gray">
-                      "East Street Advisory helped us navigate the emotional and financial complexities of our family business transition. Their methodical approach kept everyone's interests in mind while ensuring the business would continue to thrive."
+                      "East Street helped us navigate the emotional and financial complexities of our family business transition. Their methodical approach kept everyone's interests in mind while ensuring the business would continue to thrive."
                     </p>
                     <p className="font-semibold text-eaststreet-brown mt-2">
                       - David Teo, Managing Director
@@ -200,7 +200,7 @@ const CaseStudies = () => {
             {/* Testimonial 2 */}
             <div className="testimonial-card">
               <p className="italic mb-4 text-eaststreet-gray">
-                "The valuation expertise provided by East Street Advisory was instrumental in demonstrating our company's true worth to potential acquirers. Professional and thorough."
+                "The valuation expertise provided by East Street was instrumental in demonstrating our company's true worth to potential acquirers. Professional and thorough."
               </p>
               <div className="flex items-center">
                 <div className="flex-1">
@@ -213,7 +213,7 @@ const CaseStudies = () => {
             {/* Testimonial 3 */}
             <div className="testimonial-card">
               <p className="italic mb-4 text-eaststreet-gray">
-                "Having East Street Advisory by our side during the acquisition process gave us confidence we were making the right decisions. Their insights were invaluable."
+                "Having East Street by our side during the acquisition process gave us confidence we were making the right decisions. Their insights were invaluable."
               </p>
               <div className="flex items-center">
                 <div className="flex-1">
