@@ -65,8 +65,8 @@ export default {
 				},
 				eaststreet: {
 					'beige': '#F5E8D9',
-					'brown': '#333333', // Changed from #4B2C20 to a dark gray
-					'light-brown': '#555555', // Changed from #8A654E to a medium gray
+					'brown': '#4B2C20', // Reverted back from #333333 to original brown
+					'light-brown': '#8A654E', // Reverted back from #555555 to original light brown
 					'cream': '#FFF8F0',
 					'gold': '#D4AF37',
 					'gray': '#6B7280',
