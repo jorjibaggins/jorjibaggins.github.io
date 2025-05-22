@@ -24,10 +24,10 @@ const Index = () => {
           <div className="flex flex-col items-center text-center">
             <div className="max-w-3xl mb-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-4" style={{ fontFamily: 'Forum, serif' }} >
-              Singapore's Premier SME M&A Advisory Firm
+              Singapore's Trusted SME Business Broker
             </h1>
               <p className="text-xl md:text-2xl text-white mb-8">
-                Maximizing business value through strategic mergers, acquisitions, and exit planning for Singapore's small and medium enterprises
+                Connecting Business Buyers and Sellers Across Singapore
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link to="/contact" className="btn-primary">
@@ -59,7 +59,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold font-serif text-eaststreet-brown mb-3">M&A Advisory</h3>
               <p className="text-eaststreet-gray mb-4 flex-grow">
-                Complete M&A advisory services for businesses looking to buy, sell, or merge with other companies in Singapore and Southeast Asia.
+                Complete M&A services for businesses looking to buy, sell, or merge with other companies in Singapore and Southeast Asia.
               </p>
               <Link to="/services#ma-advisory" className="text-eaststreet-brown hover:text-eaststreet-light-brown font-medium inline-flex items-center mt-2">
                 Learn More
@@ -78,7 +78,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold font-serif text-eaststreet-brown mb-3">Business Valuation</h3>
               <p className="text-eaststreet-gray mb-4 flex-grow">
-                Expert valuation services to determine the true market value of your business using industry-specific methodologies and market insights.
+                Unpack the true value of your business with our expert valuation services, leveraging the latest industry standards and methodologies
               </p>
               <Link to="/services#business-valuation" className="text-eaststreet-brown hover:text-eaststreet-light-brown font-medium inline-flex items-center mt-2">
                 Learn More
@@ -97,7 +97,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold font-serif text-eaststreet-brown mb-3">Exit Strategy Planning</h3>
               <p className="text-eaststreet-gray mb-4 flex-grow">
-                Comprehensive exit planning services to prepare your business for a successful sale or transition, maximizing value and minimizing disruption.
+                Guiding you through every stage of preparing your business for a successful sale or transition to maximize value and minimize disruption
               </p>
               <Link to="/services#exit-planning" className="text-eaststreet-brown hover:text-eaststreet-light-brown font-medium inline-flex items-center mt-2">
                 Learn More
@@ -126,16 +126,16 @@ const Index = () => {
                   <strong className="text-eaststreet-brown">Local Expertise, Global Perspective:</strong> Deep understanding of Singapore's business landscape combined with international M&A experience.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-brown">Boutique Approach:</strong> Personalized attention and tailored solutions for each client's unique situation.
+                  <strong className="text-eaststreet-brown">Boutique Approach:</strong> Personalised attention and tailored solutions for <b>your needs</b>.
                 </li>
                 <li>
                   <strong className="text-eaststreet-brown">End-to-End Support:</strong> Comprehensive guidance throughout the entire M&A process, from initial valuation to closing.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-brown">Extensive Network:</strong> Access to qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
+                  <strong className="text-eaststreet-brown">Extensive Network:</strong> Access to a <b>large pool</b> of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-brown">Proven Track Record:</strong> Successful completion of numerous SME transactions across various industries.
+                  <strong className="text-eaststreet-brown">Proven Track Record:</strong> S$250M+ closed in total transactions across various industries.
                 </li>
               </ul>
               <div className="mt-8">
@@ -169,12 +169,12 @@ const Index = () => {
             {/* Testimonial 1 */}
             <div className="testimonial-card">
               <p className="italic mb-4 text-eaststreet-gray">
-                "East Street Advisory guided us through the complex process of selling our manufacturing business. Their expertise in business valuation and strategic positioning helped us secure a deal that exceeded our expectations."
+                "East Street Advisory made selling our manufacturing business way less stressful than we expected. They really knew their stuff when it came to valuing the business and figuring out the right strategy."
               </p>
               <div className="flex items-center">
                 <div className="flex-1">
                   <p className="font-bold text-eaststreet-brown">Michael Tan</p>
-                  <p className="text-sm text-eaststreet-gray">Former Owner, Precision Engineering Co.</p>
+                  <p className="text-sm text-eaststreet-gray">Former Owner, Manufacturing Firm</p>
                 </div>
               </div>
             </div>
@@ -182,12 +182,12 @@ const Index = () => {
             {/* Testimonial 2 */}
             <div className="testimonial-card">
               <p className="italic mb-4 text-eaststreet-gray">
-                "The team's deep understanding of Singapore's business landscape and international markets was instrumental in finding the perfect strategic partner for our expansion. Highly recommended!"
+                "The team really knows the ins and outs of doing business in Singapore and has a great network of investors. They helped us find the perfect partner to grow with. Definitely recommend them!"
               </p>
               <div className="flex items-center">
                 <div className="flex-1">
                   <p className="font-bold text-eaststreet-brown">Sarah Lim</p>
-                  <p className="text-sm text-eaststreet-gray">CEO, TechGrowth Solutions</p>
+                  <p className="text-sm text-eaststreet-gray">CEO, Tech Industry</p>
                 </div>
               </div>
             </div>
@@ -213,11 +213,11 @@ const Index = () => {
               <p className="text-sm md:text-base">Transaction Value</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">15+</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">13+</p>
               <p className="text-sm md:text-base">Years Experience</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">12</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">25</p>
               <p className="text-sm md:text-base">Industries Served</p>
             </div>
           </div>

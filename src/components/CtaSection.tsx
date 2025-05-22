@@ -11,7 +11,7 @@ interface CtaSectionProps {
 
 const CtaSection: React.FC<CtaSectionProps> = ({
   title = "Ready to Discuss Your Business Growth or Exit Strategy?",
-  description = "Let East Street Advisory help you navigate the complex world of mergers and acquisitions with tailored advice for your specific business needs.",
+  description = "Let East Street Advisory help you navigate the complex world of selling your business with tailored advice for your specific needs.",
   buttonText = "Schedule a Consultation",
   buttonLink = "/contact"
 }) => {
