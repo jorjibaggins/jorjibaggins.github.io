@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -41,8 +42,7 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Decorative triangle - adjusted to be visible against the background image */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-16 h-16 rotate-45 bg-white border border-eaststreet-gold z-10"></div>
+        {/* Diamond shape removed */}
       </section>
 
       {/* Services Section */}
@@ -111,6 +111,30 @@ const Index = () => {
             <Link to="/services" className="btn-secondary">
               View All Services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section - Moved from bottom to here */}
+      <section className="bg-eaststreet-brown text-white py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">50+</p>
+              <p className="text-sm md:text-base">Successful Transactions</p>
+            </div>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">S$250M+</p>
+              <p className="text-sm md:text-base">Transaction Value</p>
+            </div>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">13+</p>
+              <p className="text-sm md:text-base">Years Experience</p>
+            </div>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">25</p>
+              <p className="text-sm md:text-base">Industries Served</p>
+            </div>
           </div>
         </div>
       </section>
@@ -196,30 +220,6 @@ const Index = () => {
             <Link to="/case-studies" className="btn-secondary">
               View All Case Studies
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-eaststreet-brown text-white py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">50+</p>
-              <p className="text-sm md:text-base">Successful Transactions</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">S$250M+</p>
-              <p className="text-sm md:text-base">Transaction Value</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">13+</p>
-              <p className="text-sm md:text-base">Years Experience</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-gold mb-2">25</p>
-              <p className="text-sm md:text-base">Industries Served</p>
-            </div>
           </div>
         </div>
       </section>

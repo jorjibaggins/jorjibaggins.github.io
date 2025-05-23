@@ -78,7 +78,7 @@
 
 .triangle-bullet li::before {
   content: "▶";
-  @apply absolute left-0 text-xs text-eaststreet-gold;
+  @apply absolute left-0 top-1.5 text-xs text-eaststreet-gold;
 }
 
 .contact-item {
