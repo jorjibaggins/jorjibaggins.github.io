@@ -52,7 +52,7 @@
 }
 
 .section-heading {
-  @apply text-3xl md:text-4xl text-eaststreet-brown relative pb-4 mb-8;
+  @apply text-3xl md:text-4xl text-eaststreet-brown relative pb-4 mb-8 font-serif;
 }
 
 .section-heading::after {
@@ -105,3 +105,4 @@
 html {
   scroll-behavior: smooth;
 }
+
