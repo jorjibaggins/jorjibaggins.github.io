@@ -126,13 +126,13 @@ const Index = () => {
                   <strong className="text-eaststreet-brown">Local Expertise, Global Perspective:</strong> Deep understanding of Singapore's business landscape combined with international M&A experience.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-brown">Boutique Approach:</strong> Personalised attention and tailored solutions for <b>your needs</b>.
+                  <strong className="text-eaststreet-brown">Boutique Approach:</strong> Personalised attention and tailored solutions for your needs.
                 </li>
                 <li>
                   <strong className="text-eaststreet-brown">End-to-End Support:</strong> Comprehensive guidance throughout the entire M&A process, from initial valuation to closing.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-brown">Extensive Network:</strong> Access to a <b>large pool</b> of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
+                  <strong className="text-eaststreet-brown">Extensive Network:</strong> Access to a large pool of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
                 </li>
                 <li>
                   <strong className="text-eaststreet-brown">Proven Track Record:</strong> S$250M+ closed in total transactions across various industries.
@@ -174,7 +174,7 @@ const Index = () => {
               <div className="flex items-center">
                 <div className="flex-1">
                   <p className="font-bold text-eaststreet-brown">Michael Tan</p>
-                  <p className="text-sm text-eaststreet-gray">Former Owner, Manufacturing Firm</p>
+                  <p className="text-sm text-eaststreet-gray">Former Owner</p>
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ const Index = () => {
               <div className="flex items-center">
                 <div className="flex-1">
                   <p className="font-bold text-eaststreet-brown">Sarah Lim</p>
-                  <p className="text-sm text-eaststreet-gray">CEO, Tech Industry</p>
+                  <p className="text-sm text-eaststreet-gray">CEO</p>
                 </div>
               </div>
             </div>

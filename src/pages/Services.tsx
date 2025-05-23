@@ -28,11 +28,11 @@ const Services = () => {
                 Our M&A advisory services guide businesses through the complex landscape of mergers and acquisitions, ensuring optimal outcomes whether you're buying, selling, or merging.
               </p>
               <ul className="triangle-bullet space-y-3 mb-6">
+                <li>Professional guidance and support throughout the entire sale process</li>
                 <li>Comprehensive buy-side and sell-side representation</li>
-                <li>Strategic partner identification and outreach</li>
+                <li>Buyer identification and outreach</li>
                 <li>Negotiation support and deal structuring</li>
                 <li>Due diligence coordination and management</li>
-                <li>Transaction closing and post-closing integration support</li>
               </ul>
               <p className="text-eaststreet-gray">
                 We leverage our extensive network and industry knowledge to identify ideal opportunities that align with your strategic goals and maximize transaction value.
@@ -57,8 +57,7 @@ const Services = () => {
               <ul className="triangle-bullet space-y-3 mb-6">
                 <li>Comprehensive financial analysis and modeling</li>
                 <li>Industry-specific valuation methodologies</li>
-                <li>Market comparables and precedent transaction analysis</li>
-                <li>Discounted cash flow analysis</li>
+                <li>Experienced valuation experts</li>
               </ul>
               <p className="text-eaststreet-gray">
                 Our valuations consider both quantitative financial data and qualitative factors specific to your business and industry to deliver accurate, reliable assessments.
@@ -129,16 +128,16 @@ const Services = () => {
             </div>
             
             <div className="service-card">
-              <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Post-Merger Integration</h3>
+              <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Due Diligence</h3>
               <p className="text-eaststreet-gray">
-                Ensure smooth transitions after a merger or acquisition with comprehensive integration planning and execution support.
+                Conduct thorough due diligence to ensure your company is well-prepared for a successful acquisition.
               </p>
             </div>
             
             <div className="service-card">
-              <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Family Business Advisory</h3>
+              <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Buyer Representation</h3>
               <p className="text-eaststreet-gray">
-                Navigate the unique challenges of family-owned businesses, including succession planning, governance, and conflict resolution.
+                Assist buyers in identifying and negotiating strategic investment opportunities.
               </p>
             </div>
             
@@ -164,7 +163,7 @@ const Services = () => {
               <h3 className="font-semibold text-eaststreet-brown">Technology</h3>
             </div>
             <div className="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-all border-t-4 border-eaststreet-gold">
-              <h3 className="font-semibold text-eaststreet-brown">Manufacturing</h3>
+              <h3 className="font-semibold text-eaststreet-brown">Sports</h3>
             </div>
             <div className="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-all border-t-4 border-eaststreet-gold">
               <h3 className="font-semibold text-eaststreet-brown">Healthcare</h3>
@@ -179,7 +178,7 @@ const Services = () => {
               <h3 className="font-semibold text-eaststreet-brown">F&B</h3>
             </div>
             <div className="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-all border-t-4 border-eaststreet-gold">
-              <h3 className="font-semibold text-eaststreet-brown">Logistics</h3>
+              <h3 className="font-semibold text-eaststreet-brown">Beauty Services</h3>
             </div>
             <div className="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-all border-t-4 border-eaststreet-gold">
               <h3 className="font-semibold text-eaststreet-brown">Education</h3>

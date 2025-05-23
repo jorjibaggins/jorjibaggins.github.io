@@ -82,12 +82,6 @@ const About = () => {
             </div>
           </div>
           <div className="max-w-3xl mx-auto mt-12 text-center">
-            <p className="text-lg text-eaststreet-gray italic">
-              "Our hands-on approach means senior advisors are directly involved in every client engagement. 
-              We limit the number of active clients to ensure each receives the focused attention and 
-              customized service they deserve."
-            </p>
-            <p className="mt-4 font-semibold text-eaststreet-brown">- John Chen, Founding Partner</p>
           </div>
         </div>
       </section>

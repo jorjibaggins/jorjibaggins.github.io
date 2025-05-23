@@ -96,14 +96,14 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-bold text-eaststreet-brown mb-3">What size businesses do you work with?</h3>
               <p className="text-eaststreet-gray">
-                We specialize in SMEs with annual revenues between S$1 million and S$100 million across various industries in Singapore and Southeast Asia.
+                We specialize in SMEs across various industries in Singapore and Southeast Asia.
               </p>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-bold text-eaststreet-brown mb-3">How are your fees structured?</h3>
               <p className="text-eaststreet-gray">
-                Our fee structure typically includes a modest retainer fee and a success fee based on the final transaction value, ensuring our incentives are aligned with maximizing value for our clients.
+                We do not charge an upfront fee. We only charge a success fee if we successfully sell your business. 
               </p>
             </div>
             

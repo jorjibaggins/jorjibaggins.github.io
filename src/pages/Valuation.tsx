@@ -49,7 +49,7 @@ const Valuation = () => {
               </div>
               <h3 className="text-xl text-eaststreet-brown mb-3" style={{ fontFamily: 'Forum, serif' }}>Understand Your True Worth</h3>
               <p className="text-eaststreet-gray">
-                Know the real market value of your business based on industry multiples, financial performance, and market conditions.
+                Know the real market value of your business based on industry-specific valuation methodologies.
               </p>
             </div>
             
@@ -118,7 +118,7 @@ const Valuation = () => {
                 <div>
                   <h3 className="text-xl text-eaststreet-brown mb-2" style={{ fontFamily: 'Forum, serif' }}>Market Assessment</h3>
                   <p className="text-eaststreet-gray">
-                    We'll evaluate current market conditions, industry multiples, and comparable transactions to provide contextual benchmarks.
+                    We'll evaluate current market conditions and use industry-specific valuation methodologies to size your business and provide contextual benchmarks.
                   </p>
                 </div>
               </div>
@@ -153,7 +153,7 @@ const Valuation = () => {
                 <div className="h-12 w-12 bg-eaststreet-beige rounded-full flex items-center justify-center text-eaststreet-brown font-bold">JL</div>
                 <div>
                   <h4 className="font-medium">James Lee</h4>
-                  <p className="text-sm text-eaststreet-gray">Former CEO, Tech Solutions Pte Ltd</p>
+                  <p className="text-sm text-eaststreet-gray">Former CEO</p>
                 </div>
               </div>
             </div>
@@ -166,7 +166,7 @@ const Valuation = () => {
                 <div className="h-12 w-12 bg-eaststreet-beige rounded-full flex items-center justify-center text-eaststreet-brown font-bold">ST</div>
                 <div>
                   <h4 className="font-medium">Sarah Tan</h4>
-                  <p className="text-sm text-eaststreet-gray">Managing Director, Greenleaf Logistics</p>
+                  <p className="text-sm text-eaststreet-gray">Managing Director</p>
                 </div>
               </div>
             </div>
