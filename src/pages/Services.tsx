@@ -29,7 +29,6 @@ const Services = () => {
               </p>
               <ul className="triangle-bullet space-y-3 mb-6">
                 <li>Professional guidance and support throughout the entire sale process</li>
-                <li>Comprehensive buy-side and sell-side representation</li>
                 <li>Buyer identification and outreach</li>
                 <li>Negotiation support and deal structuring</li>
                 <li>Due diligence coordination and management</li>
@@ -81,9 +80,8 @@ const Services = () => {
               </p>
               <ul className="triangle-bullet space-y-3 mb-6">
                 <li>Customized exit timeline development</li>
+                <li>Support pre-transaction readiness and positioning for exit</li>
                 <li>Business value enhancement strategies</li>
-                <li>Succession planning for family businesses</li>
-                <li>Post-exit transition support</li>
               </ul>
               <p className="text-eaststreet-gray">
                 Our structured approach ensures your business is optimally positioned when the time comes to exit, maximizing value while achieving your personal and financial goals.

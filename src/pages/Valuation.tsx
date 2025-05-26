@@ -219,7 +219,7 @@ const Valuation = () => {
             <div className="bg-eaststreet-lightest p-6 rounded-lg">
               <h3 className="text-xl text-eaststreet-darkest mb-3 font-serif">How confidential is this process?</h3>
               <p className="text-eaststreet-dark">
-                Extremely confidential. We sign NDAs with all clients and have strict protocols to protect your sensitive business information.
+                Extremely confidential. We sign NDAs with clients and have strict protocols to protect your sensitive business information.
               </p>
             </div>
           </div>

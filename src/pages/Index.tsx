@@ -122,11 +122,11 @@ const Index = () => {
               <p className="text-sm md:text-base">Successful Transactions</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-primary mb-2">S$250M+</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-primary mb-2">S$2B+</p>
               <p className="text-sm md:text-base">Transaction Value</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-primary mb-2">13+</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-primary mb-2">12+</p>
               <p className="text-sm md:text-base">Years Experience</p>
             </div>
             <div>
@@ -157,7 +157,7 @@ const Index = () => {
                   <strong className="text-eaststreet-darkest">Extensive Network:</strong> Access to a large pool of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-darkest">Proven Track Record:</strong> S$250M+ closed in total transactions across various industries.
+                  <strong className="text-eaststreet-darkest">Proven Track Record:</strong> S$2B+ closed in total transactions across various industries.
                 </li>
               </ul>
               <div className="mt-8">
