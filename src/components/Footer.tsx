@@ -6,16 +6,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-eaststreet-brown text-white pt-12 pb-6">
+    <footer className="bg-[#002855] text-white pt-12 pb-6">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Column 1: Logo and Brief - Updated with larger logo */}
+          {/* Column 1: Logo and Brief - Updated with new logo */}
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/c6caf5d0-53bd-4b7a-af1d-4ed28326d949.png" 
+                src="/lovable-uploads/ffa4aa41-f0e9-48fb-aae3-3c7d61ecbfb6.png" 
                 alt="East Street Advisory Logo" 
-                className="h-20" /* Increased from h-16 to h-20 */
+                className="h-20"
               />
             </div>
             <p className="text-sm opacity-80 mt-4">
@@ -38,9 +38,9 @@ const Footer = () => {
               <li>
                 <Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/case-studies" className="opacity-80 hover:opacity-100 transition-opacity">Case Studies</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/valuation" className="opacity-80 hover:opacity-100 transition-opacity">Free Valuation</Link>
               </li>
