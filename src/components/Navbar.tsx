@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-eaststreet-beige',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-eaststreet-lightest',
         scrolled ? 'shadow-md py-3' : 'py-5'
       )}
     >
@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* Logo - Updated with new image */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/89f16988-aa42-4270-8891-37f26fe4a40d.png" 
+              src="/lovable-uploads/42e5c86a-b211-4a13-bc53-42702c3d6cb7.png" 
               alt="East Street Advisory Logo" 
               className="h-12 md:h-16"
             />
@@ -43,7 +43,7 @@ const Navbar = () => {
             <NavLink to="/" label="Home" />
             <NavLink to="/services" label="Services" />
             <NavLink to="/about" label="About Us" />
-            <NavLink to="/case-studies" label="Case Studies" />
+            {/* <NavLink to="/case-studies" label="Case Studies" /> */}
             <NavLink to="/valuation" label="Free Valuation" />
             <NavLink to="/contact" label="Contact" />
           </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
             aria-label="Toggle Menu"
           >
             <svg
-              className="w-6 h-6 text-eaststreet-brown"
+              className="w-6 h-6 text-eaststreet-darkest"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ const Navbar = () => {
               <MobileNavLink to="/" label="Home" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/services" label="Services" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/about" label="About Us" onClick={() => setIsOpen(false)} />
-              <MobileNavLink to="/case-studies" label="Case Studies" onClick={() => setIsOpen(false)} />
+              {/* <MobileNavLink to="/case-studies" label="Case Studies" onClick={() => setIsOpen(false)} /> */}
               <MobileNavLink to="/valuation" label="Free Valuation" onClick={() => setIsOpen(false)} />
               <MobileNavLink to="/contact" label="Contact" onClick={() => setIsOpen(false)} />
             </div>
@@ -103,7 +103,7 @@ const NavLink = ({ to, label }: { to: string; label: string }) => {
   return (
     <Link
       to={to}
-      className="text-eaststreet-brown hover:text-eaststreet-light-brown font-medium transition-colors duration-300"
+      className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium transition-colors duration-300"
     >
       {label}
     </Link>
@@ -115,7 +115,7 @@ const MobileNavLink = ({ to, label, onClick }: { to: string; label: string; onCl
   return (
     <Link
       to={to}
-      className="block py-2 px-4 text-eaststreet-brown hover:bg-eaststreet-beige rounded transition-colors duration-300"
+      className="block py-2 px-4 text-eaststreet-darkest hover:bg-eaststreet-lightest rounded transition-colors duration-300"
       onClick={onClick}
     >
       {label}

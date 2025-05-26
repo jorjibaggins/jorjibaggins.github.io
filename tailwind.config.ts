@@ -64,13 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				eaststreet: {
-					'beige': '#F5E8D9',
-					'brown': '#5D3429', // Lightened from #4B2C20
-					'light-brown': '#9B7660', // Lightened from #8A654E
-					'cream': '#FFF8F0',
-					'gold': '#D4AF37',
-					'gray': '#6B7280',
-					'light-gray': '#F3F4F6',
+					'lightest': '#e7f0f9',
+					'light': '#a8d0f0',
+					'medium': '#4da8da',
+					'primary': '#1e90ff',
+					'dark': '#0056b3',
+					'darkest': '#002855'
 				}
 			},
 			borderRadius: {
