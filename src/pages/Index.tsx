@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -212,8 +213,8 @@ const Index = () => {
             <div className="relative">
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
-                  alt="Business handshake representing successful broker engagement" 
+                  src="/lovable-uploads/cdd40949-dc13-4e5c-a8a9-cba39904c2c4.png" 
+                  alt="Professional business broker representing expert guidance" 
                   className="w-full h-auto object-cover"
                 />
               </div>
