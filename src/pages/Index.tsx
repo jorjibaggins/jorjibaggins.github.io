@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -179,6 +178,56 @@ const Index = () => {
                 <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-eaststreet-primary rounded-lg -z-10"></div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Engage a Business Broker Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <SectionHeading title="Why You Should Engage a Business Broker" centered={true} />
+          <div className="grid md:grid-cols-2 gap-12 mt-12 items-center">
+            <div>
+              <ul className="triangle-bullet space-y-6 text-lg">
+                <li>
+                  <strong className="text-eaststreet-darkest">Maximize Your Business Value:</strong> Professional brokers know how to position your business to attract the highest offers and negotiate the best terms.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Access to Qualified Buyers:</strong> Brokers maintain extensive networks of pre-qualified buyers, saving you time and ensuring serious inquiries only.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Maintain Confidentiality:</strong> Keep your business sale private to protect relationships with employees, customers, and suppliers during the process.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Expert Deal Structuring:</strong> Navigate complex transaction structures, tax implications, and legal requirements with professional guidance.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Save Time & Focus on Business:</strong> Let professionals handle the sale process while you continue running your business effectively.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Objective Market Valuation:</strong> Get an unbiased, data-driven assessment of your business worth based on current market conditions.
+                </li>
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
+                  alt="Business handshake representing successful broker engagement" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-eaststreet-primary rounded-lg -z-10 opacity-20"></div>
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-eaststreet-darkest rounded-lg -z-10"></div>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-xl text-eaststreet-dark mb-6 max-w-3xl mx-auto">
+              Don't navigate the complex world of business transactions alone. Partner with experienced professionals who understand the Singapore market.
+            </p>
+            <Link to="/contact" className="btn-primary">
+              Speak with a Broker Today
+            </Link>
           </div>
         </div>
       </section>
