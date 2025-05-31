@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '@/components/SectionHeading';
@@ -188,6 +187,17 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading title="Why You Should Engage a Business Broker" centered={true} />
           <div className="grid md:grid-cols-2 gap-12 mt-12 items-center">
+            <div className="relative">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <img 
+                  src="/lovable-uploads/cdd40949-dc13-4e5c-a8a9-cba39904c2c4.png" 
+                  alt="Professional business broker representing expert guidance" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-eaststreet-primary rounded-lg -z-10 opacity-20"></div>
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-eaststreet-darkest rounded-lg -z-10"></div>
+            </div>
             <div>
               <ul className="triangle-bullet space-y-6 text-lg">
                 <li>
@@ -209,17 +219,6 @@ const Index = () => {
                   <strong className="text-eaststreet-darkest">Objective Market Valuation:</strong> Get an unbiased, data-driven assessment of your business worth based on current market conditions.
                 </li>
               </ul>
-            </div>
-            <div className="relative">
-              <div className="rounded-lg overflow-hidden shadow-xl">
-                <img 
-                  src="/lovable-uploads/cdd40949-dc13-4e5c-a8a9-cba39904c2c4.png" 
-                  alt="Professional business broker representing expert guidance" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-eaststreet-primary rounded-lg -z-10 opacity-20"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-eaststreet-darkest rounded-lg -z-10"></div>
             </div>
           </div>
           <div className="text-center mt-12">
