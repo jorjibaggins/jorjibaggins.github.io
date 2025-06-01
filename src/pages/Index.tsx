@@ -225,9 +225,6 @@ const Index = () => {
             <p className="text-xl text-eaststreet-dark mb-6 max-w-3xl mx-auto">
               Don't navigate the complex world of business transactions alone. Partner with experienced professionals who understand the Singapore market.
             </p>
-            <Link to="/contact" className="btn-primary">
-              Speak with a Broker Today
-            </Link>
           </div>
         </div>
       </section>
