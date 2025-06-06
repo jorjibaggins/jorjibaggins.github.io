@@ -210,7 +210,7 @@ const Index = () => {
                   <strong className="text-eaststreet-darkest">Maintain Confidentiality:</strong> Keep your business sale private to protect relationships with employees, customers, and suppliers during the process.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-darkest">Expert Deal Structuring:</strong> Navigate complex transaction structures, tax implications, and legal requirements with professional guidance.
+                  <strong className="text-eaststreet-darkest">Expert Deal Structuring:</strong> Navigate complex transaction structures and legal requirements with professional guidance.
                 </li>
                 <li>
                   <strong className="text-eaststreet-darkest">Save Time & Focus on Business:</strong> Let professionals handle the sale process while you continue running your business effectively.
