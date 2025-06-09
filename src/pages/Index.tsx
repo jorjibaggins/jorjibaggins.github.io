@@ -5,7 +5,7 @@ import CtaSection from '@/components/CtaSection';
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-eaststreet-lightest">
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet"></link>
       {/* Hero Section - Increased padding-top to push content further down below the navbar */}
       <section className="relative pt-40 pb-24">
@@ -43,7 +43,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-eaststreet-lightest">
+      <section id="services" className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading title="Our Services" centered={true} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
@@ -112,32 +112,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section - Updated colors: white background with dark blue text */}
-      <section className="bg-white py-16">
+      {/* Stats Section - Updated to dark blue background with light blue text */}
+      <section className="bg-eaststreet-darkest py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-darkest mb-2">50+</p>
-              <p className="text-sm md:text-base text-eaststreet-dark">Successful Transactions</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">50+</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Successful Transactions</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-darkest mb-2">S$2B+</p>
-              <p className="text-sm md:text-base text-eaststreet-dark">Transaction Value</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">S$2B+</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Transaction Value</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-darkest mb-2">12+</p>
-              <p className="text-sm md:text-base text-eaststreet-dark">Years Experience</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">12+</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Years Experience</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-darkest mb-2">25</p>
-              <p className="text-sm md:text-base text-eaststreet-dark">Industries Served</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">25</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Industries Served</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section id="why-us" className="py-20 bg-eaststreet-lightest">
+      <section id="why-us" className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
@@ -183,7 +183,7 @@ const Index = () => {
       </section>
 
       {/* Why Engage a Business Broker Section */}
-      <section className="py-20 bg-eaststreet-lightest">
+      <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading title="Why You Should Engage a Business Broker" centered={true} />
           <div className="grid md:grid-cols-2 gap-12 mt-12 items-center">
