@@ -65,7 +65,7 @@
 }
 
 .service-card {
-  @apply bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-transparent hover:border-eaststreet-primary;
+  @apply p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-transparent hover:border-eaststreet-primary;
 }
 
 .testimonial-card {
