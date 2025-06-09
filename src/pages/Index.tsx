@@ -144,19 +144,19 @@ const Index = () => {
               <SectionHeading title="Why Choose East Street Advisory?" />
               <ul className="triangle-bullet space-y-4 text-lg">
                 <li>
-                  <strong className="text-eaststreet-darkest">Local Expertise, Global Perspective:</strong> Deep understanding of Singapore's business landscape combined with international M&A experience.
-                </li>
-                <li>
-                  <strong className="text-eaststreet-darkest">Boutique Approach:</strong> Personalised attention and tailored solutions for your needs.
-                </li>
-                <li>
-                  <strong className="text-eaststreet-darkest">End-to-End Support:</strong> Comprehensive guidance throughout the entire M&A process, from initial valuation to closing.
-                </li>
-                <li>
                   <strong className="text-eaststreet-darkest">Extensive Network:</strong> Access to a large pool of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
                 </li>
                 <li>
                   <strong className="text-eaststreet-darkest">Proven Track Record:</strong> S$2B+ closed in total transactions across various industries.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">No Upfront Fees:</strong> Our interests are completely aligned with yours - we only get paid if we help you sell.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">Local Expertise, Global Perspective:</strong> Deep understanding of Singapore's business landscape combined with international M&A experience.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">End-to-End Support:</strong> Comprehensive guidance throughout the entire M&A process, from initial valuation to closing.
                 </li>
               </ul>
               <div className="mt-8">
