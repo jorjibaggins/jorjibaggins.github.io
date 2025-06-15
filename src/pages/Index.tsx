@@ -117,12 +117,12 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">50+</p>
-              <p className="text-sm md:text-base text-eaststreet-light">Successful Transactions</p>
+              <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">30+</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Transactions Evaluated</p>
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">S$2B+</p>
-              <p className="text-sm md:text-base text-eaststreet-light">Transaction Value</p>
+              <p className="text-sm md:text-base text-eaststreet-light">Transaction Value Closed</p>
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold font-serif text-eaststreet-light mb-2">12+</p>
@@ -144,13 +144,13 @@ const Index = () => {
               <SectionHeading title="Why Choose East Street Advisory?" />
               <ul className="triangle-bullet space-y-4 text-lg">
                 <li>
-                  <strong className="text-eaststreet-darkest">Extensive Network:</strong> Access to a large pool of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
-                </li>
-                <li>
                   <strong className="text-eaststreet-darkest">Proven Track Record:</strong> S$2B+ closed in total transactions across various industries.
                 </li>
                 <li>
-                  <strong className="text-eaststreet-darkest">No Upfront Fees:</strong> Our interests are completely aligned with yours - we only get paid if we help you sell.
+                  <strong className="text-eaststreet-darkest">Extensive Network:</strong> Access to a large pool of qualified buyers, sellers, and strategic partners across Singapore and Southeast Asia.
+                </li>
+                <li>
+                  <strong className="text-eaststreet-darkest">No Upfront Fees:</strong> No upfront commitment; our interests are completely aligned with yours - we only get paid if we help you sell.
                 </li>
                 <li>
                   <strong className="text-eaststreet-darkest">Local Expertise, Global Perspective:</strong> Deep understanding of Singapore's business landscape combined with international M&A experience.
