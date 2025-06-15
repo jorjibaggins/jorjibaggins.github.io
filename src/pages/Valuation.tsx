@@ -205,7 +205,7 @@ const Valuation = () => {
             <div className="bg-eaststreet-lightest p-6 rounded-lg">
               <h3 className="text-xl text-eaststreet-darkest mb-3 font-serif">Is the valuation really free?</h3>
               <p className="text-eaststreet-dark">
-                Yes, our initial valuation service is completely free and comes with no obligation to engage our services further.
+                Yes, our initial valuation service is completely free and comes with no obligation to engage our services further. Should you wish to get a detailed valuation report, we will provide a quotation based on the size and complexity of your company.
               </p>
             </div>
             
