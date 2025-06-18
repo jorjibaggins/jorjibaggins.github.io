@@ -39,42 +39,38 @@ const ContactForm = () => {
   // Form submission
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    
+  
     try {
-      const formData = new FormData();
-      
-      // Add form data
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('message', data.message);
-      
-      if (data.phone) formData.append('phone', data.phone);
-      if (data.company) formData.append('company', data.company);
-      
-      // Required Web3Forms data
-      formData.append('access_key', '74e8a036-1522-4498-944d-6893a47c2412');
-      
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "74e8a036-1522-4498-944d-6893a47c2412",
+          subject: `${data.name} sent a message from ESA website`,
+          from_name: "East Street Advisory",
+          botcheck: "",           // honeypot
+          ...data,                // name, email, phone, company, message
+        }),
       });
-      
+  
       const result = await response.json();
-      
-      if (result.success) {
-        toast({
-          title: "Message Sent Successfully",
-          description: "Thank you for contacting East Street Advisory. We'll be in touch soon.",
-        });
-        form.reset();
-      } else {
-        throw new Error(result.message || 'Something went wrong');
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
+      if (!result.success) throw new Error(result.message);
+  
+      toast({
+        title: "Message sent!",
+        description:
+          "Thank you for contacting East Street Advisory. We'll be in touch soon.",
+      });
+      form.reset();
+    } catch (err) {
+      console.error(err);
       toast({
         title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
+        description:
+          "There was a problem sending your message. Please try again later.",
         variant: "destructive",
       });
     } finally {
