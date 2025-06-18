@@ -70,26 +70,14 @@ const Contact = () => {
             </div>
             
             {/* Contact Form */}
-            {/* <div>
+            <div>
               <SectionHeading title="Send a Message" />
               <p className="mb-6 text-eaststreet-gray">
                 Please fill out the form below and our team will get back to you within 24 hours. All inquiries are treated with strict confidentiality.
               </p>
               <ContactForm />
             </div>
-          </div> */}
-        {/* Contact Form */}
-        <div>
-          <SectionHeading title="Send a Message" />
-          <p className="mb-6 text-eaststreet-gray">
-            Please fill out the form below and our team will get back to you within 24 hours. All inquiries are treated with strict confidentiality.
-          </p>
-        
-          {/* Form container with white background */}
-          <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
-            <ContactForm />
           </div>
-        </div>
         </div>
       </section>
 
