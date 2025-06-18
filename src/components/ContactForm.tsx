@@ -51,13 +51,25 @@ const ContactForm = () => {
     }
   });
 
-  // Form submission with better error handling
+  // Form submission with improved error handling
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    console.log('Form submission started:', data);
   
     try {
-      // Add delay to avoid being flagged as spam
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const formData = {
+        access_key: "74e8a036-1522-4498-944d-6893a47c2412",
+        name: data.name.trim(),
+        email: data.email.trim(),
+        phone: data.phone?.trim() || "Not provided",
+        company: data.company?.trim() || "Not provided",
+        message: data.message.trim(),
+        subject: `New inquiry from ${data.name} - East Street Advisory`,
+        from_name: "East Street Advisory Website",
+        _template: "table"
+      };
+
+      console.log('Sending form data:', formData);
       
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -65,53 +77,30 @@ const ContactForm = () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          access_key: "74e8a036-1522-4498-944d-6893a47c2412",
-          subject: `New inquiry from ${data.name} - East Street Advisory`,
-          from_name: "East Street Advisory Website",
-          to: "contact@eaststreetadvisory.com",
-          botcheck: "",
-          name: data.name.trim(),
-          email: data.email.trim(),
-          phone: data.phone?.trim() || "Not provided",
-          company: data.company?.trim() || "Not provided",
-          message: data.message.trim(),
-          // Additional fields to help with delivery
-          _subject: `New inquiry from ${data.name} - East Street Advisory`,
-          _autoresponse: "Thank you for contacting East Street Advisory. We have received your message and will respond within 24 hours.",
-          _template: "table"
-        }),
+        body: JSON.stringify(formData),
       });
-  
+
+      console.log('Response status:', response.status);
       const result = await response.json();
+      console.log('Response data:', result);
       
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || `HTTP error! status: ${response.status}`);
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for contacting East Street Advisory. We'll be in touch within 24 hours.",
+        });
+        
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Form submission failed');
       }
-  
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for contacting East Street Advisory. We'll be in touch within 24 hours.",
-      });
       
-      form.reset();
     } catch (err) {
       console.error('Form submission error:', err);
       
-      // Provide more specific error messages
-      let errorMessage = "There was a problem sending your message. Please try again later.";
-      
-      if (err instanceof Error) {
-        if (err.message.includes('spam')) {
-          errorMessage = "Your message was flagged by our spam filter. Please try rewording your message or contact us directly at contact@eaststreetadvisory.com";
-        } else if (err.message.includes('network') || err.message.includes('fetch')) {
-          errorMessage = "Network error. Please check your connection and try again.";
-        }
-      }
-      
       toast({
         title: "Error",
-        description: errorMessage,
+        description: "There was a problem sending your message. Please try again or contact us directly at contact@eaststreetadvisory.com",
         variant: "destructive",
       });
     } finally {
@@ -122,9 +111,6 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        {/* Honeypot field for spam protection */}
-        <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
