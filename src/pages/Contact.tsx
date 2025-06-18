@@ -70,7 +70,7 @@ const Contact = () => {
             </div>
             
             {/* Contact Form */}
-            <div>
+            <div className="bg-white p-8 rounded-lg shadow-md">
               <SectionHeading title="Send a Message" />
               <p className="mb-6 text-eaststreet-gray">
                 Please fill out the form below and our team will get back to you within 24 hours. All inquiries are treated with strict confidentiality.

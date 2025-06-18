@@ -9,13 +9,28 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-// Define form validation schema
+// Define form validation schema with better validation
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional(),
-  company: z.string().optional(),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." })
+  name: z.string()
+    .min(2, { message: "Name must be at least 2 characters." })
+    .max(50, { message: "Name must be less than 50 characters." })
+    .regex(/^[a-zA-Z\s]+$/, { message: "Name can only contain letters and spaces." }),
+  email: z.string()
+    .email({ message: "Please enter a valid email address." })
+    .max(100, { message: "Email must be less than 100 characters." }),
+  phone: z.string()
+    .optional()
+    .refine((val) => !val || /^[\+]?[0-9\s\-\(\)]{7,15}$/.test(val), {
+      message: "Please enter a valid phone number."
+    }),
+  company: z.string()
+    .optional()
+    .refine((val) => !val || val.length <= 100, {
+      message: "Company name must be less than 100 characters."
+    }),
+  message: z.string()
+    .min(20, { message: "Message must be at least 20 characters." })
+    .max(1000, { message: "Message must be less than 1000 characters." })
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -36,11 +51,14 @@ const ContactForm = () => {
     }
   });
 
-  // Form submission
+  // Form submission with better error handling
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
   
     try {
+      // Add delay to avoid being flagged as spam
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -49,28 +67,51 @@ const ContactForm = () => {
         },
         body: JSON.stringify({
           access_key: "74e8a036-1522-4498-944d-6893a47c2412",
-          subject: `${data.name} sent a message from ESA website`,
-          from_name: "East Street Advisory",
-          botcheck: "",           // honeypot
-          ...data,                // name, email, phone, company, message
+          subject: `New inquiry from ${data.name} - East Street Advisory`,
+          from_name: "East Street Advisory Website",
+          to: "contact@eaststreetadvisory.com",
+          botcheck: "",
+          name: data.name.trim(),
+          email: data.email.trim(),
+          phone: data.phone?.trim() || "Not provided",
+          company: data.company?.trim() || "Not provided",
+          message: data.message.trim(),
+          // Additional fields to help with delivery
+          _subject: `New inquiry from ${data.name} - East Street Advisory`,
+          _autoresponse: "Thank you for contacting East Street Advisory. We have received your message and will respond within 24 hours.",
+          _template: "table"
         }),
       });
   
       const result = await response.json();
-      if (!result.success) throw new Error(result.message);
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || `HTTP error! status: ${response.status}`);
+      }
   
       toast({
-        title: "Message sent!",
-        description:
-          "Thank you for contacting East Street Advisory. We'll be in touch soon.",
+        title: "Message sent successfully!",
+        description: "Thank you for contacting East Street Advisory. We'll be in touch within 24 hours.",
       });
+      
       form.reset();
     } catch (err) {
-      console.error(err);
+      console.error('Form submission error:', err);
+      
+      // Provide more specific error messages
+      let errorMessage = "There was a problem sending your message. Please try again later.";
+      
+      if (err instanceof Error) {
+        if (err.message.includes('spam')) {
+          errorMessage = "Your message was flagged by our spam filter. Please try rewording your message or contact us directly at contact@eaststreetadvisory.com";
+        } else if (err.message.includes('network') || err.message.includes('fetch')) {
+          errorMessage = "Network error. Please check your connection and try again.";
+        }
+      }
+      
       toast({
         title: "Error",
-        description:
-          "There was a problem sending your message. Please try again later.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -171,7 +212,7 @@ const ContactForm = () => {
                   {...field} 
                   rows={5}
                   className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
-                  placeholder="How can we help you?" 
+                  placeholder="Please describe how we can help with your business needs..." 
                 />
               </FormControl>
               <FormMessage />
