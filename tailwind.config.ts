@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				eaststreet: {
-					'lightest': '#e7f0f9',
+					'lightest': '#f0f4f8',
 					'light': '#a8d0f0',
 					'medium': '#4da8da',
 					'primary': '#1e90ff',
