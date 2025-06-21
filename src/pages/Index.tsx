@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Removed for static site
 import SectionHeading from '@/components/SectionHeading';
 import CtaSection from '@/components/CtaSection';
 
@@ -30,12 +30,12 @@ const Index = () => {
                 Connecting Business Buyers and Sellers Across Singapore
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contact" className="btn-primary">
+                <a href="/contact" className="btn-primary">
                   Schedule Consultation
-                </Link>
-                <Link to="/services" className="bg-eaststreet-lightest text-eaststreet-darkest px-6 py-3 rounded-md hover:bg-eaststreet-primary hover:text-white transition-colors duration-300 inline-block font-medium">
+                </a>
+                <a href="/services" className="bg-eaststreet-lightest text-eaststreet-darkest px-6 py-3 rounded-md hover:bg-eaststreet-primary hover:text-white transition-colors duration-300 inline-block font-medium">
                   Explore Our Services
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -58,12 +58,12 @@ const Index = () => {
               <p className="text-eaststreet-dark mb-4 flex-grow">
                 Complete M&A services for businesses looking to buy, sell, or merge with other companies in Singapore and Southeast Asia.
               </p>
-              <Link to="/services#ma-advisory" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
+              <a href="/services#ma-advisory" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
                 Learn More
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-              </Link>
+              </a>
             </div>
             
             {/* Service Card 2 */}
@@ -77,12 +77,12 @@ const Index = () => {
               <p className="text-eaststreet-dark mb-4 flex-grow">
                 Unpack the true value of your business with our expert valuation services, leveraging the latest industry standards and methodologies
               </p>
-              <Link to="/services#business-valuation" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
+              <a href="/services#business-valuation" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
                 Learn More
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-              </Link>
+              </a>
             </div>
             
             {/* Service Card 3 */}
@@ -96,18 +96,18 @@ const Index = () => {
               <p className="text-eaststreet-dark mb-4 flex-grow">
                 Guiding you through every stage of preparing your business for a successful sale or transition to maximize value and minimize disruption
               </p>
-              <Link to="/services#exit-planning" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
+              <a href="/services#exit-planning" className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center mt-2">
                 Learn More
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-              </Link>
+              </a>
             </div>
           </div>
           <div className="text-center mt-12">
-            <Link to="/services" className="btn-secondary">
+            <a href="/services" className="btn-secondary">
               View All Services
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -160,9 +160,9 @@ const Index = () => {
                 </li>
               </ul>
               <div className="mt-8">
-                <Link to="/about" className="btn-primary">
+                <a href="/about" className="btn-primary">
                   Learn About Our Approach
-                </Link>
+                </a>
               </div>
             </div>
             <div className="lg:w-1/2">
@@ -259,9 +259,9 @@ const Index = () => {
             </div>
           </div>
           <div className="text-center mt-10">
-            <Link to="/case-studies" className="btn-secondary">
+            <a href="/case-studies" className="btn-secondary">
               View All Case Studies
-            </Link>
+            </a>
           </div>
         </div>
       </section> */}

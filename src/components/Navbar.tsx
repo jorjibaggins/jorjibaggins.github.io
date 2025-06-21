@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Removed for static site
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -30,13 +30,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo - Updated with new image */}
-          <Link to="/" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img 
               src="/lovable-uploads/42e5c86a-b211-4a13-bc53-42702c3d6cb7.png" 
               alt="East Street Advisory Logo" 
               className="h-12 md:h-16"
             />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -101,25 +101,25 @@ const Navbar = () => {
 // Desktop Navigation Link
 const NavLink = ({ to, label }: { to: string; label: string }) => {
   return (
-    <Link
-      to={to}
+    <a
+      href={to}
       className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium transition-colors duration-300"
     >
       {label}
-    </Link>
+    </a>
   );
 };
 
 // Mobile Navigation Link
 const MobileNavLink = ({ to, label, onClick }: { to: string; label: string; onClick: () => void }) => {
   return (
-    <Link
-      to={to}
+    <a
+      href={to}
       className="block py-2 px-4 text-eaststreet-darkest hover:bg-eaststreet-lightest rounded transition-colors duration-300"
       onClick={onClick}
     >
       {label}
-    </Link>
+    </a>
   );
 };
 

@@ -1,17 +1,17 @@
 
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom"; // Removed for static site
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom"; // Removed for static site
 
 const NotFound = () => {
-  const location = useLocation();
+  // const location = useLocation(); // Removed for static site
 
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
-      location.pathname
+      window.location.pathname
     );
-  }, [location.pathname]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-eaststreet-cream flex items-center justify-center px-4">
@@ -28,12 +28,12 @@ const NotFound = () => {
           </p>
         </div>
         <div className="space-y-4">
-          <Link to="/" className="btn-primary block">
+          <a href="/" className="btn-primary block">
             Return to Home
-          </Link>
-          <Link to="/contact" className="text-eaststreet-brown hover:text-eaststreet-light-brown inline-block">
+          </a>
+          <a href="/contact" className="text-eaststreet-brown hover:text-eaststreet-light-brown inline-block">
             Contact Us for Help
-          </Link>
+          </a>
         </div>
       </div>
     </main>

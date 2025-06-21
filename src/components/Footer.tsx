@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Removed for static site
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,22 +30,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="opacity-80 hover:opacity-100 transition-opacity">Home</Link>
+                <a href="/" className="opacity-80 hover:opacity-100 transition-opacity">Home</a>
               </li>
               <li>
-                <Link to="/services" className="opacity-80 hover:opacity-100 transition-opacity">Services</Link>
+                <a href="/services" className="opacity-80 hover:opacity-100 transition-opacity">Services</a>
               </li>
               <li>
-                <Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link>
+                <a href="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</a>
               </li>
               {/* <li>
-                <Link to="/case-studies" className="opacity-80 hover:opacity-100 transition-opacity">Case Studies</Link>
+                <a href="/case-studies" className="opacity-80 hover:opacity-100 transition-opacity">Case Studies</a>
               </li> */}
               <li>
-                <Link to="/valuation" className="opacity-80 hover:opacity-100 transition-opacity">Free Valuation</Link>
+                <a href="/valuation" className="opacity-80 hover:opacity-100 transition-opacity">Free Valuation</a>
               </li>
               <li>
-                <Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact</Link>
+                <a href="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact</a>
               </li>
             </ul>
           </div>

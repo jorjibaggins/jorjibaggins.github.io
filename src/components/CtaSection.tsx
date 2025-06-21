@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Removed for static site
 
 interface CtaSectionProps {
   title?: string;
@@ -24,9 +24,23 @@ const CtaSection: React.FC<CtaSectionProps> = ({
         <p className="text-lg mb-8 text-eaststreet-gray">
           {description}
         </p>
-        <Link to={buttonLink} className="btn-primary">
-          {buttonText}
-        </Link>
+        {buttonLink.startsWith('#') ? (
+          <button 
+            onClick={() => {
+              const element = document.querySelector(buttonLink);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="btn-primary"
+          >
+            {buttonText}
+          </button>
+        ) : (
+          <a href={buttonLink} className="btn-primary">
+            {buttonText}
+          </a>
+        )}
       </div>
     </section>
   );

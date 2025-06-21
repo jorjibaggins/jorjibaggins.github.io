@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // Removed for static site
 import ContactForm from '@/components/ContactForm';
 import SectionHeading from '@/components/SectionHeading';
 import CtaSection from '@/components/CtaSection';
@@ -20,8 +20,18 @@ const Valuation = () => {
                 Get a professional, confidential valuation of your business completely free of charge, with no obligation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#valuation-form" className="btn-primary">Get Free Valuation</a>
-                <Link to="/services" className="btn-secondary">Our Services</Link>
+                <button 
+                  onClick={() => {
+                    const element = document.querySelector('#valuation-form');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="btn-primary"
+                >
+                  Get Free Valuation
+                </button>
+                <a href="/services" className="btn-secondary">Our Services</a>
               </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-xl">
