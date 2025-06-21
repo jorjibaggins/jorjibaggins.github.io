@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,8 +63,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				eaststreet: {
-					'lightest': '#f0f4f8',
-					'light': '#f0f4f8',
+					'lightest': '#e7f0f9',
+					'light': '#e7f0f9',
 					'medium': '#4da8da',
 					'primary': '#1e90ff',
 					'dark': '#0056b3',
