@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionHeading from '@/components/SectionHeading';
 import CtaSection from '@/components/CtaSection';
@@ -104,42 +103,42 @@ const Services = () => {
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading title="Additional Advisory Services" centered={true} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Strategic Growth Planning</h3>
               <p className="text-eaststreet-gray">
                 Develop strategic plans for organic growth or growth through acquisitions. We help identify opportunities, assess market potential, and create actionable implementation plans.
               </p>
             </div>
             
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Capital Raising</h3>
               <p className="text-eaststreet-gray">
                 Secure the funding needed for growth or acquisitions. We help structure deals, prepare documentation, and connect you with appropriate funding sources.
               </p>
             </div>
             
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Financial Restructuring</h3>
               <p className="text-eaststreet-gray">
                 Optimize your company's financial structure to improve performance, reduce costs, and enhance value prior to a potential transaction.
               </p>
             </div>
             
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Due Diligence</h3>
               <p className="text-eaststreet-gray">
                 Conduct thorough due diligence to ensure your company is well-prepared for a successful acquisition.
               </p>
             </div>
             
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Buyer Representation</h3>
               <p className="text-eaststreet-gray">
                 Assist buyers in identifying and negotiating strategic investment opportunities.
               </p>
             </div>
             
-            <div className="service-card">
+            <div className="service-card bg-white">
               <h3 className="text-xl font-bold text-eaststreet-brown mb-3">Business Performance Improvement</h3>
               <p className="text-eaststreet-gray">
                 Identify and implement operational improvements to enhance profitability, efficiency, and overall business value.
