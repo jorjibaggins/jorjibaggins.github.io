@@ -65,7 +65,7 @@ export default {
 				},
 				eaststreet: {
 					'lightest': '#f0f4f8',
-					'light': '#a8d0f0',
+					'light': '#f0f4f8',
 					'medium': '#4da8da',
 					'primary': '#1e90ff',
 					'dark': '#0056b3',
