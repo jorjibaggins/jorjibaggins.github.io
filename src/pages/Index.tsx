@@ -6,7 +6,6 @@ import CtaSection from '@/components/CtaSection';
 const Index = () => {
   return (
     <main className="min-h-screen bg-eaststreet-lightest">
-    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet"></link>
       {/* Hero Section - Increased padding-top to push content further down below the navbar */}
       <section className="relative pt-40 pb-24">
         {/* Background Image */}
