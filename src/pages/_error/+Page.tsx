@@ -3,6 +3,7 @@ export { Page }
 import React from 'react'
 import { usePageContext } from 'vike-react/usePageContext'
 import Layout from '@/components/Layout'
+import '../../index.css'
 
 function Page() {
   const pageContext = usePageContext()
