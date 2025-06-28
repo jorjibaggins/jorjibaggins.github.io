@@ -17,7 +17,7 @@ export interface BlogPostMetadata {
 
 // Auto-import all blog post metadata and content using Vite's glob import
 const metadataModules = import.meta.glob('../content/blog/*.json', { eager: true });
-const contentModules = import.meta.glob('../content/blog/*.md', { eager: true, as: 'raw' });
+const contentModules = import.meta.glob('../content/blog/*.md', { eager: true, query: '?raw', import: 'default' });
 
 // Extract filename without extension for mapping
 const getFilenameKey = (path: string): string => {

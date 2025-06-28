@@ -1,17 +1,33 @@
+export { Page }
 
-// import { useLocation } from "react-router-dom"; // Removed for static site
-import { useEffect } from "react";
-// import { Link } from "react-router-dom"; // Removed for static site
+import React, { useEffect } from 'react'
+import { usePageContext } from 'vike-react/usePageContext'
 
-const NotFound = () => {
-  // const location = useLocation(); // Removed for static site
+function Page() {
+  const pageContext = usePageContext()
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      window.location.pathname
-    );
-  }, []);
+    if (pageContext.is404) {
+      console.error(
+        "404 Error: User attempted to access non-existent route:",
+        window.location.pathname
+      );
+    }
+  }, [pageContext.is404]);
+
+  let title = "Something went wrong"
+  let message = "Something went wrong. Try again (later)."
+
+  if (pageContext.is404) {
+    title = "Page Not Found"
+    message = "The page you're looking for doesn't exist or has been moved."
+  } else if (pageContext.abortStatusCode === 403) {
+    title = "Access Denied"
+    message = "You don't have enough privileges to access this page."
+  } else if (pageContext.abortStatusCode === 401) {
+    title = "Unauthorized"
+    message = "You aren't logged in. Please log in to access this page."
+  }
 
   return (
     <main className="min-h-screen bg-eaststreet-cream flex items-center justify-center px-4">
@@ -22,9 +38,9 @@ const NotFound = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-eaststreet-brown mb-4">Page Not Found</h1>
+          <h1 className="text-4xl font-bold text-eaststreet-brown mb-4">{title}</h1>
           <p className="text-eaststreet-gray mb-8">
-            The page you're looking for doesn't exist or has been moved.
+            {message}
           </p>
         </div>
         <div className="space-y-4">
@@ -37,7 +53,5 @@ const NotFound = () => {
         </div>
       </div>
     </main>
-  );
-};
-
-export default NotFound;
+  )
+}
