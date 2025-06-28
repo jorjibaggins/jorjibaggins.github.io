@@ -21,11 +21,41 @@ async function onRenderHtml(pageContext: PageContextServer) {
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQHP81B6EX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-YQHP81B6EX');
+        </script>
+        
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-        ${headHtml ? dangerouslySkipEscape(headHtml) : '<title>East Street Advisory</title><meta name="description" content="M&A and business advisory services tailored to Singapore SME business owners" />'}
+        <meta name="author" content="East Street Advisory" />
+        <meta name="keywords" content="SME business broker Singapore, business acquisition Singapore, M&A advisory Singapore, sell business Singapore, business valuation, merger acquisition consultant" />
+        
+        <!-- Open Graph / Social Media Meta Tags -->
+        <meta property="og:title" content="East Street Advisory | Singapore's Top SME Business Broker" />
+        <meta property="og:description" content="Singapore's leading business broker firm for small and medium-sized enterprises. Strategic advisory to help sell your business." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" />
+        <meta property="og:url" content="https://eaststreetadvisory.sg" />
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@eaststreetadv" />
+        <meta name="twitter:image" content="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" />
+        
+        <!-- Favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&display=swap">
+        
+        ${headHtml ? dangerouslySkipEscape(headHtml) : '<title>East Street Advisory | Singapore\'s Top SME Business Broker</title><meta name="description" content="East Street Advisory - Leading business broker in Singapore helping owners maximize value through strategic transactions and expert advisory services." />'}
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(pageHtml)}</div>
