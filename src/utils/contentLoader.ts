@@ -19,6 +19,18 @@ export interface BlogPostMetadata {
 const metadataModules = import.meta.glob('../content/blog/*.json', { eager: true });
 const contentModules = import.meta.glob('../content/blog/*.md', { eager: true, query: '?raw', import: 'default' });
 
+// Filter out README and other non-blog files
+const filterBlogFiles = (modules: Record<string, any>): Record<string, any> => {
+  const filtered: Record<string, any> = {};
+  Object.entries(modules).forEach(([path, module]) => {
+    const filename = path.split('/').pop() || '';
+    if (!filename.toLowerCase().includes('readme')) {
+      filtered[path] = module;
+    }
+  });
+  return filtered;
+};
+
 // Extract filename without extension for mapping
 const getFilenameKey = (path: string): string => {
   const filename = path.split('/').pop() || '';
@@ -41,8 +53,10 @@ const loadBlogPosts = (): BlogPostMetadata[] => {
 export const blogPostsMetadata: BlogPostMetadata[] = loadBlogPosts();
 
 export const getPostContent = (slug: string): string | null => {
-  // Find the content file that matches the slug
-  for (const [path, content] of Object.entries(contentModules)) {
+  // Filter out README files and find the content file that matches the slug
+  const filteredContentModules = filterBlogFiles(contentModules);
+  
+  for (const [path, content] of Object.entries(filteredContentModules)) {
     const filenameKey = getFilenameKey(path);
     const metadata = blogPostsMetadata.find(post => 
       getFilenameKey(`${post.slug}.json`) === filenameKey || 
