@@ -1,19 +1,152 @@
-import{a,c as r,b as s}from"./chunk-BBr4BBfA.js";import{j as l}from"./chunk-1yTvftWi.js";/**
+import{b as o,j as k,c as w,d as M}from"./chunk-Bm65ttc5.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const w=a("Calendar",[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]]);/**
+ */const j=o("Calendar",[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]]);/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const C=a("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]]);/**
+ */const F=o("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]]);/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const E=a("User",[["path",{d:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",key:"975kel"}],["circle",{cx:"12",cy:"7",r:"4",key:"17ys0d"}]]),c=`Selling your small to medium enterprise (SME) in Singapore is one of the most significant financial decisions you'll make as a business owner. The timing of your sale can dramatically impact your final valuation, with the difference between a well-timed and poorly-timed sale potentially reaching millions of dollars. Understanding Singapore's unique market dynamics, economic cycles, and business valuation patterns is crucial for maximizing your exit value.
+ */const L=o("User",[["path",{d:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",key:"975kel"}],["circle",{cx:"12",cy:"7",r:"4",key:"17ys0d"}]]),g="1",m="When Is the Best Time to Sell Your SME in Singapore?",u="best-time-sell-sme-singapore-market-cycles-valuations-timing",p="Discover the optimal timing strategies for selling your SME in Singapore. Learn about market cycles, valuation peaks, and strategic timing to maximize your business sale value.",d="East Street Advisory Team",y="2024-01-15",f="12 min read",h=["Business Sale","SME","Singapore","Market Timing","Valuation","M&A"],v=!0,b="Discover the optimal timing strategies for selling your SME in Singapore. Learn about market cycles, valuation peaks, and strategic timing to maximize your business sale value.",S=["sell my business singapore","sell business singapore","business sale timing singapore","SME sale singapore","singapore business broker","business valuation singapore","when to sell business"],T={id:g,title:m,slug:u,excerpt:p,author:d,publishDate:y,readTime:f,tags:h,featured:v,metaDescription:b,seoKeywords:S},P=Object.freeze(Object.defineProperty({__proto__:null,author:d,default:T,excerpt:p,featured:v,id:g,metaDescription:b,publishDate:y,readTime:f,seoKeywords:S,slug:u,tags:h,title:m},Symbol.toStringTag,{value:"Module"})),x=`# Blog Content Management
+
+This directory contains all blog post content and metadata in separate, easily editable files.
+
+## File Structure
+
+For each blog post, you need two files:
+1. \`[slug].md\` - The main content in Markdown format
+2. \`[slug].json\` - Metadata and SEO information
+
+## Adding a New Blog Post
+
+### Step 1: Create the Content File
+Create a new \`.md\` file with your blog post slug as the filename:
+\`\`\`
+src/content/blog/your-new-post-slug.md
+\`\`\`
+
+Write your content in Markdown format. You can use:
+- \`#\` for main headings
+- \`##\` for section headings  
+- \`###\` for subsection headings
+- \`**bold text**\` for emphasis
+- Lists, links, and other standard Markdown
+
+### Step 2: Create the Metadata File
+Create a corresponding \`.json\` file:
+\`\`\`
+src/content/blog/your-new-post-slug.json
+\`\`\`
+
+Use this template:
+\`\`\`json
+{
+  "id": "unique-id",
+  "title": "Your Blog Post Title",
+  "slug": "your-new-post-slug",
+  "excerpt": "A brief description that appears in the blog listing",
+  "author": "East Street Advisory Team",
+  "publishDate": "2024-01-15",
+  "readTime": "8 min read",
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "featured": false,
+  "metaDescription": "SEO meta description for search engines",
+  "seoKeywords": ["keyword1", "keyword2", "keyword3"]
+}
+\`\`\`
+
+### Step 3: Update the Content Loader
+Add your new post to \`/src/utils/contentLoader.ts\`:
+
+1. Import the content and metadata:
+\`\`\`typescript
+import yourPostContent from '../content/blog/your-new-post-slug.md?raw';
+import yourPostMetadata from '../content/blog/your-new-post-slug.json';
+\`\`\`
+
+2. Add to the metadata array:
+\`\`\`typescript
+export const blogPostsMetadata: BlogPostMetadata[] = [
+  bestTimeMetadata as BlogPostMetadata,
+  yourPostMetadata as BlogPostMetadata  // Add this line
+];
+\`\`\`
+
+3. Add to the content function:
+\`\`\`typescript
+export const getPostContent = (slug: string): string | null => {
+  switch (slug) {
+    case 'best-time-sell-sme-singapore-market-cycles-valuations-timing':
+      return bestTimeContent;
+    case 'your-new-post-slug':  // Add this case
+      return yourPostContent;
+    default:
+      return null;
+  }
+};
+\`\`\`
+
+### Step 4: Create the Page Route
+Create a new page file at:
+\`\`\`
+src/pages/blog/your-new-post-slug.page.tsx
+\`\`\`
+
+Use this template:
+\`\`\`typescript
+export { Page }
+export { documentProps }
+
+import React from 'react'
+import Layout from '../../components/Layout'
+import BlogPost from '../BlogPost'
+import '../../index.css'
+
+function Page() {
+  return (
+    <Layout>
+      <BlogPost slug="your-new-post-slug" />
+    </Layout>
+  )
+}
+
+const documentProps = {
+  title: 'Your Blog Post Title - East Street Advisory',
+  description: 'Your meta description here'
+}
+\`\`\`
+
+## Editing Existing Posts
+
+To edit an existing blog post:
+
+1. **Content**: Edit the \`.md\` file directly
+2. **Metadata**: Edit the \`.json\` file to update title, tags, etc.
+3. **SEO**: Update the \`metaDescription\` and \`seoKeywords\` in the \`.json\` file
+
+## SEO Best Practices
+
+- Keep titles under 60 characters
+- Write compelling meta descriptions (150-160 characters)
+- Use relevant keywords naturally in content
+- Include Singapore-specific terms when relevant
+- Tag posts with relevant categories
+- Set \`featured: true\` for important posts to highlight them
+
+## Content Guidelines
+
+- Write for Singapore business owners
+- Include practical, actionable advice
+- Use local examples and case studies
+- Reference Singapore regulations and market conditions
+- Maintain professional tone while being accessible
+- Include internal links to your services pages where relevant`,C=`Selling your small to medium enterprise (SME) in Singapore is one of the most significant financial decisions you'll make as a business owner. The timing of your sale can dramatically impact your final valuation, with the difference between a well-timed and poorly-timed sale potentially reaching millions of dollars. Understanding Singapore's unique market dynamics, economic cycles, and business valuation patterns is crucial for maximizing your exit value.
 
 ## Understanding Singapore's Economic Cycles and Their Impact on Business Sales
 
@@ -410,4 +543,4 @@ The difference between good timing and great timing can mean millions of dollars
 
 If you're considering selling your SME in Singapore, the time to start planning is now. The most successful exits are those that combine strategic timing with thorough preparation and professional guidance. Don't leave your business sale to chance – start your strategic timing planning today.
 
-**Ready to optimize your business sale timing?** Contact our team of Singapore M&A specialists for a confidential consultation and market timing analysis. We'll help you develop a strategic timeline that maximizes your business value and ensures optimal sale conditions.`,g="1",m="When Is the Best Time to Sell Your SME in Singapore?",u="best-time-sell-sme-singapore-market-cycles-valuations-timing",p="Discover the optimal timing strategies for selling your SME in Singapore. Learn about market cycles, valuation peaks, and strategic timing to maximize your business sale value.",d="East Street Advisory Team",y="2024-01-15",f="12 min read",h=["Business Sale","SME","Singapore","Market Timing","Valuation","M&A"],v=!0,b="Discover the optimal timing strategies for selling your SME in Singapore. Learn about market cycles, valuation peaks, and strategic timing to maximize your business sale value.",S=["sell my business singapore","sell business singapore","business sale timing singapore","SME sale singapore","singapore business broker","business valuation singapore","when to sell business"],k={id:g,title:m,slug:u,excerpt:p,author:d,publishDate:y,readTime:f,tags:h,featured:v,metaDescription:b,seoKeywords:S},t=[k],T=n=>{switch(n){case"best-time-sell-sme-singapore-market-cycles-valuations-timing":return c;default:return null}},D=()=>t.filter(n=>n.featured),A=n=>{const e=t.find(o=>o.slug===n),i=T(n);if(e&&i)return{...e,content:i}},B=()=>t.sort((n,e)=>new Date(e.publishDate).getTime()-new Date(n.publishDate).getTime()),M=s("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",{variants:{variant:{default:"border-transparent bg-primary text-primary-foreground hover:bg-primary/80",secondary:"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",destructive:"border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",outline:"text-foreground"}},defaultVariants:{variant:"default"}});function I({className:n,variant:e,...i}){return l.jsx("div",{className:r(M({variant:e}),n),...i})}export{I as B,w as C,E as U,B as a,C as b,A as c,D as g};
+**Ready to optimize your business sale timing?** Contact our team of Singapore M&A specialists for a confidential consultation and market timing analysis. We'll help you develop a strategic timeline that maximizes your business value and ensures optimal sale conditions.`,E=Object.assign({"../content/blog/best-time-sell-sme-singapore-market-cycles-valuations-timing.json":P}),A=Object.assign({"../content/blog/README.md":x,"../content/blog/best-time-sell-sme-singapore-market-cycles-valuations-timing.md":C}),B=n=>{const e={};return Object.entries(n).forEach(([i,t])=>{(i.split("/").pop()||"").toLowerCase().includes("readme")||(e[i]=t)}),e},c=n=>(n.split("/").pop()||"").replace(/\.(json|md)$/,""),D=()=>{const n=[];return Object.entries(E).forEach(([,e])=>{const i=e.default;n.push(i)}),n},a=D(),I=n=>{const e=B(A);for(const[i,t]of Object.entries(e)){const s=c(i),r=a.find(l=>c(`${l.slug}.json`)===s||l.slug===n);if(r&&r.slug===n)return t}return null},R=()=>a.filter(n=>n.featured),_=n=>{const e=a.find(t=>t.slug===n),i=I(n);if(e&&i)return{...e,content:i}},U=()=>a.sort((n,e)=>new Date(e.publishDate).getTime()-new Date(n.publishDate).getTime()),O=M("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",{variants:{variant:{default:"border-transparent bg-primary text-primary-foreground hover:bg-primary/80",secondary:"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",destructive:"border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",outline:"text-foreground"}},defaultVariants:{variant:"default"}});function W({className:n,variant:e,...i}){return k.jsx("div",{className:w(O({variant:e}),n),...i})}export{W as B,j as C,L as U,U as a,F as b,_ as c,R as g};

@@ -1,1 +1,0 @@
-import{r as n,j as c}from"../chunks/chunk-1yTvftWi.js";var o={},t=n;o.createRoot=t.createRoot,o.hydrateRoot=t.hydrateRoot;async function d(e){const{Page:r,pageProps:a}=e;o.createRoot(document.getElementById("root")).render(c.jsx(r,{...a}))}export{d as render};
