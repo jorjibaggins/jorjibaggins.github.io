@@ -59,6 +59,74 @@ async function onRenderHtml(pageContext: PageContextServer) {
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(pageHtml)}</div>
+        <script type="module">
+          // Navbar interactivity
+          function initNavbar() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            if (mobileMenuButton && mobileMenu && hamburgerIcon && closeIcon) {
+              let isOpen = false;
+              
+              function toggleMobileMenu() {
+                isOpen = !isOpen;
+                
+                if (isOpen) {
+                  mobileMenu.classList.remove('hidden');
+                  hamburgerIcon.classList.add('hidden');
+                  closeIcon.classList.remove('hidden');
+                } else {
+                  mobileMenu.classList.add('hidden');
+                  hamburgerIcon.classList.remove('hidden');
+                  closeIcon.classList.add('hidden');
+                }
+              }
+              
+              function closeMobileMenu() {
+                if (isOpen) {
+                  isOpen = false;
+                  mobileMenu.classList.add('hidden');
+                  hamburgerIcon.classList.remove('hidden');
+                  closeIcon.classList.add('hidden');
+                }
+              }
+              
+              mobileMenuButton.addEventListener('click', toggleMobileMenu);
+              
+              mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+              });
+            }
+            
+            // Scroll effect
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+              function handleScroll() {
+                const offset = window.scrollY;
+                
+                if (offset > 50) {
+                  navbar.classList.add('shadow-md', 'py-3');
+                  navbar.classList.remove('py-5');
+                } else {
+                  navbar.classList.remove('shadow-md', 'py-3');
+                  navbar.classList.add('py-5');
+                }
+              }
+              
+              window.addEventListener('scroll', handleScroll);
+            }
+          }
+          
+          // Initialize on load
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNavbar);
+          } else {
+            initNavbar();
+          }
+        </script>
       </body>
     </html>`
 
