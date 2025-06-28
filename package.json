@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:ssg": "vite build && vite build --ssr",
-    "build:dev": "vite build --mode development",
+    "dev": "vike dev",
+    "build": "vike build",
+    "build:ssg": "vike build && vike build --ssr",
+    "build:dev": "vike build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vike preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -79,6 +79,6 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vite-plugin-ssr": "^0.4.142"
+    "vike": "^0.4.142"
   }
 }

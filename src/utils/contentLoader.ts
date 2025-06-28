@@ -1,6 +1,5 @@
 // Content loader utility for blog posts
-// Note: In a static site, we'll import the content directly
-// This provides a foundation for future dynamic content loading
+// Uses Vite's glob import to automatically discover and load all blog posts
 
 export interface BlogPostMetadata {
   id: string;
@@ -16,21 +15,46 @@ export interface BlogPostMetadata {
   seoKeywords: string[];
 }
 
-// Import content and metadata directly for static site generation
-import bestTimeContent from '../content/blog/best-time-sell-my-business-singapore.md?raw';
-import bestTimeMetadata from '../content/blog/best-time-sell-my-business-singapore.json';
+// Auto-import all blog post metadata and content using Vite's glob import
+const metadataModules = import.meta.glob('../content/blog/*.json', { eager: true });
+const contentModules = import.meta.glob('../content/blog/*.md', { eager: true, as: 'raw' });
 
-export const blogPostsMetadata: BlogPostMetadata[] = [
-  bestTimeMetadata as BlogPostMetadata
-];
+// Extract filename without extension for mapping
+const getFilenameKey = (path: string): string => {
+  const filename = path.split('/').pop() || '';
+  return filename.replace(/\.(json|md)$/, '');
+};
+
+// Load and process all blog post metadata
+const loadBlogPosts = (): BlogPostMetadata[] => {
+  const posts: BlogPostMetadata[] = [];
+  
+  Object.entries(metadataModules).forEach(([, module]) => {
+    const metadata = (module as any).default as BlogPostMetadata;
+    posts.push(metadata);
+  });
+  
+  return posts;
+};
+
+// Cache the loaded posts
+export const blogPostsMetadata: BlogPostMetadata[] = loadBlogPosts();
 
 export const getPostContent = (slug: string): string | null => {
-  switch (slug) {
-    case 'best-time-sell-sme-singapore-market-cycles-valuations-timing':
-      return bestTimeContent;
-    default:
-      return null;
+  // Find the content file that matches the slug
+  for (const [path, content] of Object.entries(contentModules)) {
+    const filenameKey = getFilenameKey(path);
+    const metadata = blogPostsMetadata.find(post => 
+      getFilenameKey(`${post.slug}.json`) === filenameKey || 
+      post.slug === slug
+    );
+    
+    if (metadata && metadata.slug === slug) {
+      return content as string;
+    }
   }
+  
+  return null;
 };
 
 export const getFeaturedPosts = (): BlogPostMetadata[] => {

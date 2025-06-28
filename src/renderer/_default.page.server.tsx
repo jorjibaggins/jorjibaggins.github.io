@@ -3,7 +3,7 @@ export { passToClient }
 
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'
-import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
+import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 import type { PageContextServer } from './types'
 
 const passToClient = ['pageProps', 'urlOriginal']
@@ -14,7 +14,7 @@ async function render(pageContext: PageContextServer) {
   // Render page to string
   const pageHtml = ReactDOMServer.renderToString(<Page {...pageProps} />)
 
-  // See https://vite-plugin-ssr.com/head
+  // See https://vike.dev/head
   const { documentProps } = pageContext.exports
   const title = (documentProps && documentProps.title) || 'East Street Advisory'
   const desc = (documentProps && documentProps.description) || 'M&A and business advisory services tailored to Singapore SME business owners'
