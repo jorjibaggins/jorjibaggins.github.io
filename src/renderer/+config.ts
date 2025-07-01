@@ -2,7 +2,7 @@ import vikeReact from 'vike-react/config'
 
 export default {
   extends: [vikeReact],
-  passToClient: ['pageProps'],
+  passToClient: ['pageProps', 'data'],
   prerender: true,
   meta: { 
     Page: {

@@ -187,6 +187,17 @@ const BlogPost: React.FC<BlogPostProps> = ({ slug }) => {
                 </div>
               </div>
 
+              {/* Cover Image */}
+              {post.coverImage && (
+                <div className="mt-12 mb-8">
+                  <img 
+                    src={post.coverImage} 
+                    alt={post.title}
+                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                  />
+                </div>
+              )}
+
               {/* Share Button */}
               <div className="flex items-center justify-between pt-8 border-t border-eaststreet-light/50">
                 <div className="flex-1"></div>

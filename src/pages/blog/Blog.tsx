@@ -1,12 +1,11 @@
 import React from 'react';
 import SectionHeading from '@/components/SectionHeading';
-import { getAllPosts, getFeaturedPosts } from '@/utils/contentLoader';
+import { getAllPosts } from '@/utils/contentLoader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, User, Calendar } from 'lucide-react';
 
 const Blog = () => {
-  const featuredPosts = getFeaturedPosts();
   const allPosts = getAllPosts();
   
   return (
@@ -36,66 +35,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Featured Posts Section */}
-      {featuredPosts.length > 0 && (
-        <section className="py-20">
-          <div className="container mx-auto px-4 md:px-6">
-            <SectionHeading title="Featured Articles" centered={true} />
-            <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 mt-12">
-              {featuredPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white">
-                  <CardHeader className="pb-4">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {post.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="bg-eaststreet-light text-eaststreet-darkest">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    <CardTitle className="text-2xl font-serif text-eaststreet-darkest hover:text-eaststreet-dark transition-colors">
-                      <a href={`/blog/${post.slug}`}>{post.title}</a>
-                    </CardTitle>
-                    <CardDescription className="text-eaststreet-dark text-lg leading-relaxed">
-                      {post.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <div className="flex items-center justify-between text-sm text-eaststreet-dark">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-1">
-                          <User className="w-4 h-4" />
-                          <span>{post.author}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{new Date(post.publishDate).toLocaleDateString('en-SG', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{post.readTime}</span>
-                        </div>
-                      </div>
-                      <a 
-                        href={`/blog/${post.slug}`}
-                        className="text-eaststreet-darkest hover:text-eaststreet-dark font-medium inline-flex items-center"
-                      >
-                        Read More
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* All Posts Section */}
       <section className="py-20 bg-white">
@@ -104,14 +43,36 @@ const Blog = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {allPosts.map((post) => (
               <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-                <CardHeader className="pb-4 flex-grow">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {post.tags.slice(0, 2).map((tag) => (
-                      <Badge key={tag} variant="outline" className="border-eaststreet-primary text-eaststreet-darkest">
-                        {tag}
-                      </Badge>
-                    ))}
+                {/* Cover Image */}
+                {post.coverImage && (
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={post.coverImage} 
+                      alt={post.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <Badge key={tag} className="bg-white/90 text-eaststreet-darkest border-0">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+                )}
+                
+                <CardHeader className="pb-4 flex-grow">
+                  {!post.coverImage && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {post.tags.slice(0, 2).map((tag) => (
+                        <Badge key={tag} variant="outline" className="border-eaststreet-primary text-eaststreet-darkest">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
                   <CardTitle className="text-xl font-serif text-eaststreet-darkest hover:text-eaststreet-dark transition-colors line-clamp-2">
                     <a href={`/blog/${post.slug}`}>{post.title}</a>
                   </CardTitle>

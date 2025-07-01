@@ -11,6 +11,7 @@ export interface BlogPostMetadata {
   readTime: string;
   tags: string[];
   featured: boolean;
+  coverImage?: string;
   metaDescription: string;
   seoKeywords: string[];
 }
@@ -41,11 +42,16 @@ const getFilenameKey = (path: string): string => {
 const loadBlogPosts = (): BlogPostMetadata[] => {
   const posts: BlogPostMetadata[] = [];
   
-  Object.entries(metadataModules).forEach(([, module]) => {
+  console.log('Metadata modules found:', Object.keys(metadataModules));
+  
+  Object.entries(metadataModules).forEach(([path, module]) => {
+    console.log('Loading metadata from:', path);
     const metadata = (module as any).default as BlogPostMetadata;
+    console.log('Loaded metadata:', metadata);
     posts.push(metadata);
   });
   
+  console.log('Total posts loaded:', posts.length);
   return posts;
 };
 
@@ -76,8 +82,14 @@ export const getFeaturedPosts = (): BlogPostMetadata[] => {
 };
 
 export const getPostBySlug = (slug: string): (BlogPostMetadata & { content: string }) | undefined => {
+  console.log('Looking for slug:', slug);
+  console.log('Available posts:', blogPostsMetadata.map(p => p.slug));
+  
   const metadata = blogPostsMetadata.find(post => post.slug === slug);
+  console.log('Found metadata:', metadata);
+  
   const content = getPostContent(slug);
+  console.log('Found content:', content ? 'YES' : 'NO');
   
   if (metadata && content) {
     return { ...metadata, content };
