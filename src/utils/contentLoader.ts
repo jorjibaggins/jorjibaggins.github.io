@@ -62,18 +62,20 @@ export const getPostContent = (slug: string): string | null => {
   // Filter out README files and find the content file that matches the slug
   const filteredContentModules = filterBlogFiles(contentModules);
   
+  console.log('Looking for content with slug:', slug);
+  console.log('Available content modules:', Object.keys(filteredContentModules));
+  
   for (const [path, content] of Object.entries(filteredContentModules)) {
     const filenameKey = getFilenameKey(path);
-    const metadata = blogPostsMetadata.find(post => 
-      getFilenameKey(`${post.slug}.json`) === filenameKey || 
-      post.slug === slug
-    );
+    console.log('Checking path:', path, 'filename key:', filenameKey);
     
-    if (metadata && metadata.slug === slug) {
+    if (filenameKey === slug) {
+      console.log('Found matching content for slug:', slug);
       return content as string;
     }
   }
   
+  console.log('No content found for slug:', slug);
   return null;
 };
 
@@ -89,7 +91,7 @@ export const getPostBySlug = (slug: string): (BlogPostMetadata & { content: stri
   console.log('Found metadata:', metadata);
   
   const content = getPostContent(slug);
-  console.log('Found content:', content ? 'YES' : 'NO');
+  console.log('Found content:', content ? 'YES' : 'NO', content?.length);
   
   if (metadata && content) {
     return { ...metadata, content };

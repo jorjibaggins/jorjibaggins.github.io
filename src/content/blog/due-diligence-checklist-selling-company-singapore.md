@@ -1,7 +1,3 @@
-# **Due Diligence Checklist for Selling a Company in Singapore**
-
-*What Business Owners Need to Prepare Before a Sale*
-
 If you're thinking about selling your company in Singapore, you've probably come across the term **due diligence**. It's a key step in the sale process—where potential buyers take a closer look at your business to make sure everything is in order before making an offer.
 
 Many business owners start by searching **"sell my company Singapore"** or **"how to sell my business Singapore"** and soon realize that preparation is half the battle. A strong due diligence package not only builds buyer confidence, but also helps you justify a higher valuation and close the deal faster.
@@ -14,7 +10,7 @@ Buyers want to be sure they're getting what they pay for. Due diligence gives th
 
 A smooth due diligence process shows that you're a serious seller—and signals that your business is well-run and ready for transition.
 
-## ✅ Due Diligence Checklist: What Buyers Will Expect
+## Due Diligence Checklist: What Buyers Will Expect
 
 ### 1. Financial Information
 
@@ -91,4 +87,4 @@ If you're seriously thinking **"I want to sell my company in Singapore,"** start
 
 At **East Street Advisory**, we work with business owners across Singapore to guide them through the sale process—starting with a solid due diligence package.
 
-**📧 Email us at contact@eaststreetadvisory.com**
+**Email us at contact@eaststreetadvisory.com**
