@@ -137,30 +137,42 @@ export interface ValidationResult {
 export const validateCalculatorForm = (inputs: Partial<CalculatorInputs>): ValidationResult => {
   const errors: Record<string, string> = {};
   
-  // Individual field validation
-  if (inputs.industry !== undefined) {
+  // Check if all required fields are present
+  if (!inputs.industry || inputs.industry === '') {
+    errors.industry = "Please select your industry";
+  } else {
     const industryError = validateIndustry(inputs.industry);
     if (industryError) errors.industry = industryError;
   }
   
-  if (inputs.annualRevenue !== undefined) {
+  if (inputs.annualRevenue === undefined || inputs.annualRevenue === null || inputs.annualRevenue === 0) {
+    errors.annualRevenue = "Annual revenue is required";
+  } else {
     const revenueError = validateRevenue(inputs.annualRevenue);
     if (revenueError) errors.annualRevenue = revenueError;
   }
   
-  if (inputs.netProfitBeforeTax !== undefined) {
+  if (inputs.netProfitBeforeTax === undefined || inputs.netProfitBeforeTax === null) {
+    errors.netProfitBeforeTax = "Net profit before tax is required";
+  } else {
     const profitError = validateNetProfit(inputs.netProfitBeforeTax);
     if (profitError) errors.netProfitBeforeTax = profitError;
   }
   
-  if (inputs.depreciationAmortisation !== undefined) {
+  if (inputs.depreciationAmortisation === undefined || inputs.depreciationAmortisation === null) {
+    errors.depreciationAmortisation = "Depreciation & amortisation is required";
+  } else {
     const daError = validateDepreciationAmortisation(inputs.depreciationAmortisation);
     if (daError) errors.depreciationAmortisation = daError;
   }
   
-  // Cross-field validation (only if all fields are present)
+  // Cross-field validation (only if all fields are present and valid)
   let crossFieldErrors: string[] = [];
-  if (inputs.industry && inputs.annualRevenue && inputs.netProfitBeforeTax && inputs.depreciationAmortisation) {
+  if (Object.keys(errors).length === 0 && 
+      inputs.industry && 
+      inputs.annualRevenue !== undefined && 
+      inputs.netProfitBeforeTax !== undefined && 
+      inputs.depreciationAmortisation !== undefined) {
     crossFieldErrors = validateCrossFields(inputs as CalculatorInputs);
   }
   
