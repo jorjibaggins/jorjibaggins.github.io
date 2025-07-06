@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, Download, Mail } from 'lucide-react';
@@ -15,7 +14,7 @@ import type { CalculatorInputs, ValuationResult } from '@/utils/valuationCalcula
 
 const ValuationCalculator: React.FC = () => {
   const [inputs, setInputs] = useState<Partial<CalculatorInputs>>({
-    industry: '',
+    industry: undefined,
     annualRevenue: undefined,
     netProfitBeforeTax: undefined,
     depreciationAmortisation: undefined
@@ -91,7 +90,7 @@ const ValuationCalculator: React.FC = () => {
 
   const resetCalculator = () => {
     setInputs({
-      industry: '',
+      industry: undefined,
       annualRevenue: undefined,
       netProfitBeforeTax: undefined,
       depreciationAmortisation: undefined
@@ -134,18 +133,18 @@ const ValuationCalculator: React.FC = () => {
             <Label htmlFor="industry" className="text-sm font-medium text-eaststreet-darkest">
               Industry *
             </Label>
-            <Select value={inputs.industry} onValueChange={(value) => handleInputChange('industry', value)}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select your industry" />
-              </SelectTrigger>
-              <SelectContent>
-                {industryMultiples.map((industry) => (
-                  <SelectItem key={industry.industry} value={industry.industry}>
-                    {industry.industry}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <select 
+              value={inputs.industry || ""} 
+              onChange={(e) => handleInputChange('industry', e.target.value)}
+              className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <option value="" disabled>Select your industry</option>
+              {industryMultiples.map((industry) => (
+                <option key={industry.industry} value={industry.industry}>
+                  {industry.industry}
+                </option>
+              ))}
+            </select>
             {errors.industry && (
               <p className="text-sm text-red-600">{errors.industry}</p>
             )}
