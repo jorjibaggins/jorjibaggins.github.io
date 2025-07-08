@@ -54,22 +54,32 @@ const ContactForm = () => {
   // Form submission with improved error handling
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    console.log('Form submission started:', data);
+    console.log('ContactForm: Form submission started:', data);
   
     try {
       const formData = {
         access_key: "74e8a036-1522-4498-944d-6893a47c2412",
         name: data.name.trim(),
         email: data.email.trim(),
-        phone: data.phone?.trim() || "Not provided",
-        company: data.company?.trim() || "Not provided",
-        message: data.message.trim(),
         subject: `New inquiry from ${data.name} - East Street Advisory`,
         from_name: "East Street Advisory Website",
+        message: `
+Contact Form Submission:
+
+Name: ${data.name.trim()}
+Email: ${data.email.trim()}
+Phone: ${data.phone?.trim() || "Not provided"}
+Company: ${data.company?.trim() || "Not provided"}
+
+Message:
+${data.message.trim()}
+
+This message was sent from the East Street Advisory website contact form.
+        `.trim(),
         _template: "table"
       };
 
-      console.log('Sending form data:', formData);
+      console.log('ContactForm: Sending form data:', formData);
       
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -80,9 +90,9 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log('Response status:', response.status);
+      console.log('ContactForm: Response status:', response.status);
       const result = await response.json();
-      console.log('Response data:', result);
+      console.log('ContactForm: Response data:', result);
       
       if (result.success) {
         toast({
@@ -96,7 +106,7 @@ const ContactForm = () => {
       }
       
     } catch (err) {
-      console.error('Form submission error:', err);
+      console.error('ContactForm: Form submission error:', err);
       
       toast({
         title: "Error",
