@@ -85,7 +85,7 @@ function Head() {
               "name": "How long does it take to sell a business in Singapore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The timeline to sell your company in Singapore typically ranges from 6-12 months, depending on business size, industry, and market conditions. Proper preparation and professional guidance can significantly speed up the process."
+                "text": "The timeline to sell your company in Singapore typically ranges from 6-12 months, depending on business size, industry, and market conditions. Proper preparation and professional guidance can speed up the process."
               }
             }
           ]
