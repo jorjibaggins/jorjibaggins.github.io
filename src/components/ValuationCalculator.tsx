@@ -4,8 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Download, Mail } from 'lucide-react';
-import EmailCaptureModal from './EmailCaptureModal';
+import { Loader2, Mail } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 import { industryMultiples } from '@/utils/industryMultiples';
 import { calculateValuation, formatCurrency, formatNumber } from '@/utils/valuationCalculator';
@@ -24,7 +24,7 @@ const ValuationCalculator: React.FC = () => {
   const [isCalculating, setIsCalculating] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [crossFieldErrors, setCrossFieldErrors] = useState<string[]>([]);
-  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   // Format currency display values
   const [displayValues, setDisplayValues] = useState({
@@ -103,15 +103,15 @@ const ValuationCalculator: React.FC = () => {
     setResult(null);
     setErrors({});
     setCrossFieldErrors([]);
-    setShowEmailModal(false);
+    setShowContactModal(false);
   };
 
-  const handleGetReport = () => {
-    setShowEmailModal(true);
+  const handleContactRequest = () => {
+    setShowContactModal(true);
     
-    // Track email capture modal opened
+    // Track contact modal opened
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'email_capture_opened', {
+      window.gtag('event', 'contact_modal_opened', {
         event_category: 'calculator',
         event_label: inputs.industry
       });
@@ -225,7 +225,7 @@ const ValuationCalculator: React.FC = () => {
             <Button
               onClick={handleCalculate}
               disabled={isCalculating}
-              className="btn-primary flex-1 md:flex-none"
+              className="btn-primary flex-1 md:flex-none px-8 whitespace-nowrap flex items-center justify-center"
             >
               {isCalculating ? (
                 <>
@@ -268,9 +268,6 @@ const ValuationCalculator: React.FC = () => {
               <div className="text-3xl font-bold text-eaststreet-darkest">
                 {formatCurrency(result.valuationRange.min)} - {formatCurrency(result.valuationRange.max)}
               </div>
-              <p className="text-sm text-eaststreet-dark mt-2">
-                Midpoint: {formatCurrency(result.discountedValuation)}
-              </p>
             </div>
 
             {/* Calculation Breakdown */}
@@ -323,41 +320,36 @@ const ValuationCalculator: React.FC = () => {
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex justify-center pt-4">
               <Button
-                onClick={handleGetReport}
-                className="btn-primary flex-1"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Get Detailed Report
-              </Button>
-              
-              <Button
-                onClick={() => {
-                  const element = document.querySelector('#valuation-form');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
+                onClick={handleContactRequest}
+                className="btn-primary py-3 px-8 text-base"
+                style={{ 
+                  minWidth: '450px',
+                  whiteSpace: 'nowrap',
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center'
                 }}
-                variant="outline"
-                className="flex-1"
               >
-                <Mail className="mr-2 h-4 w-4" />
-                Contact East Street Advisory
+                <Mail className="h-4 w-4" style={{ marginRight: '8px' }} />
+                Get a tailored valuation for my company
               </Button>
             </div>
           </CardContent>
         </Card>
       )}
 
-      {/* Email Capture Modal */}
-      {result && showEmailModal && (
-        <EmailCaptureModal
-          isOpen={showEmailModal}
-          onClose={() => setShowEmailModal(false)}
+      {/* Contact Modal */}
+      {result && showContactModal && (
+        <ContactModal
+          isOpen={showContactModal}
+          onClose={() => setShowContactModal(false)}
           valuationData={{
             industry: inputs.industry!,
             revenue: inputs.annualRevenue!,
+            netProfitBeforeTax: inputs.netProfitBeforeTax!,
+            depreciationAmortisation: inputs.depreciationAmortisation!,
             ebitda: result.ebitda,
             valuationRange: result.valuationRange,
             midpoint: result.discountedValuation

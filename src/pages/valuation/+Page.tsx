@@ -13,11 +13,16 @@ function Page() {
         {/* Hero Section */}
         <section className="bg-eaststreet-lightest py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl md:text-4xl text-eaststreet-darkest mb-4 font-serif">
+                Sell Your Company in Singapore
+              </h1>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="text-center lg:text-left">
-                <h1 className="text-4xl md:text-5xl text-eaststreet-darkest mb-6 font-serif">
-                  Sell Your Company in Singapore - Free & Instant Business Valuation Estimate
-                </h1>
+                <h2 className="text-4xl md:text-5xl font-bold text-eaststreet-brown mb-6">
+                  Free & Instant Business Valuation Estimate
+                </h2>
                 <p className="text-xl text-eaststreet-dark mb-8">
                   Discover what your business is worth with our instant valuation calculator. Get an estimated business value range in minutes, based on industry-specific multiples used by Singapore business brokers and M&A professionals.
                 </p>
@@ -133,7 +138,7 @@ function Page() {
                   <div>
                     <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Calculate EBITDA</h3>
                     <p className="text-eaststreet-dark">
-                      We calculate your Earnings Before Interest, Tax, Depreciation & Amortisation (EBITDA) - the standard metric used for business valuations in Singapore.
+                      We calculate your Earnings Before Interest, Tax, Depreciation & Amortisation (EBITDA) - the standard metric used for business valuations across most industries in Singapore.
                     </p>
                   </div>
                 </div>
@@ -145,7 +150,7 @@ function Page() {
                   <div>
                     <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Apply Industry Multiple</h3>
                     <p className="text-eaststreet-dark">
-                      Your EBITDA is multiplied by an industry-specific multiple based on Singapore market data. Technology companies typically get higher multiples than retail businesses.
+                      Your EBITDA is multiplied by an industry-specific multiple based on recent Singapore market data. Technology companies typically get higher multiples than retail businesses.
                     </p>
                   </div>
                 </div>
@@ -157,7 +162,7 @@ function Page() {
                   <div>
                     <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Get Your Valuation Range</h3>
                     <p className="text-eaststreet-dark">
-                      We apply a conservative 10% discount and provide a ±20% range to account for market conditions and business-specific factors when selling your company.
+                      We apply an illiquidity discount and provide a valuation range to account for market conditions and business-specific factors when selling your company.
                     </p>
                   </div>
                 </div>
