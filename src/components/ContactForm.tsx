@@ -52,7 +52,8 @@ const ContactForm = () => {
   });
 
   // Form submission with improved error handling
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: FormValues, event?: React.BaseSyntheticEvent) => {
+    event?.preventDefault();
     setIsSubmitting(true);
     console.log('ContactForm: Form submission started:', data);
   
