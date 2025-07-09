@@ -1,6 +1,4 @@
 
-import React, { useState } from 'react';
-import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -36,9 +34,6 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
   // Initialize form
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -51,77 +46,15 @@ const ContactForm = () => {
     }
   });
 
-  // Form submission with improved error handling
-  const onSubmit = async (data: FormValues, event?: React.BaseSyntheticEvent) => {
-    event?.preventDefault();
-    setIsSubmitting(true);
-    console.log('ContactForm: Form submission started:', data);
-  
-    try {
-      const formData = {
-        access_key: "74e8a036-1522-4498-944d-6893a47c2412",
-        name: data.name.trim(),
-        email: data.email.trim(),
-        subject: `New inquiry from ${data.name} - East Street Advisory`,
-        from_name: "East Street Advisory Website",
-        message: `
-Contact Form Submission:
-
-Name: ${data.name.trim()}
-Email: ${data.email.trim()}
-Phone: ${data.phone?.trim() || "Not provided"}
-Company: ${data.company?.trim() || "Not provided"}
-
-Message:
-${data.message.trim()}
-
-This message was sent from the East Street Advisory website contact form.
-        `.trim(),
-        _template: "table"
-      };
-
-      console.log('ContactForm: Sending form data:', formData);
-      
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      console.log('ContactForm: Response status:', response.status);
-      const result = await response.json();
-      console.log('ContactForm: Response data:', result);
-      
-      if (result.success) {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for contacting East Street Advisory. We'll be in touch within 24 hours.",
-        });
-        
-        form.reset();
-      } else {
-        throw new Error(result.message || 'Form submission failed');
-      }
-      
-    } catch (err) {
-      console.error('ContactForm: Form submission error:', err);
-      
-      toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again or contact us directly at contact@eaststreetadvisory.com",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  // Form submission is now handled by the HTML script in onRenderHtml.tsx
+  // This prevents the React form from submitting and interfering with the HTML script
+  const onSubmit = () => {
+    // No-op - form submission is handled by HTML script
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form data-contact-form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
@@ -132,6 +65,7 @@ This message was sent from the East Street Advisory website contact form.
                 <FormControl>
                   <Input 
                     {...field} 
+                    name="name"
                     className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
                     placeholder="Your Name" 
                   />
@@ -150,6 +84,7 @@ This message was sent from the East Street Advisory website contact form.
                 <FormControl>
                   <Input 
                     {...field} 
+                    name="email"
                     type="email" 
                     className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
                     placeholder="your.email@example.com" 
@@ -169,6 +104,7 @@ This message was sent from the East Street Advisory website contact form.
                 <FormControl>
                   <Input 
                     {...field} 
+                    name="phone"
                     type="tel"
                     className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
                     placeholder="+65 1234 5678" 
@@ -188,6 +124,7 @@ This message was sent from the East Street Advisory website contact form.
                 <FormControl>
                   <Input 
                     {...field} 
+                    name="company"
                     className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
                     placeholder="Your Company" 
                   />
@@ -207,6 +144,7 @@ This message was sent from the East Street Advisory website contact form.
               <FormControl>
                 <Textarea 
                   {...field} 
+                  name="message"
                   rows={5}
                   className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-eaststreet-gold focus:border-transparent"
                   placeholder="Please describe how we can help with your business needs..." 
@@ -220,20 +158,9 @@ This message was sent from the East Street Advisory website contact form.
         <div>
           <Button
             type="submit"
-            disabled={isSubmitting}
             className="btn-primary w-full flex justify-center items-center"
           >
-            {isSubmitting ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Sending...
-              </>
-            ) : (
-              'Send Message'
-            )}
+            Send Message
           </Button>
         </div>
       </form>
