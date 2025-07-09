@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="/assets/static/src_index-b3c78705.kitPvkjN.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/src_index-b3c78705.sVOV3PId.css">
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQHP81B6EX"></script>
         <script>
@@ -106,6 +106,87 @@
             document.addEventListener('DOMContentLoaded', initNavbar);
           } else {
             initNavbar();
+          }
+        </script>
+        
+        <!-- Web3Forms Script -->
+        <script>
+          // Handle form submission
+          function handleContactFormSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...';
+            
+            // Prepare form data for web3forms (matching original React logic)
+            const data = {
+              access_key: "74e8a036-1522-4498-944d-6893a47c2412",
+              name: formData.get('name').trim(),
+              email: formData.get('email').trim(),
+              phone: formData.get('phone')?.trim() || "Not provided",
+              company: formData.get('company')?.trim() || "Not provided",
+              message: formData.get('message').trim(),
+              subject: `New inquiry from ${formData.get('name')} - East Street Advisory`,
+              from_name: "East Street Advisory Website",
+              _template: "table"
+            };
+            
+            console.log('Form submission started:', data);
+            
+            // Submit to web3forms
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+            .then(response => {
+              console.log('Response status:', response.status);
+              return response.json();
+            })
+            .then(result => {
+              console.log('Response data:', result);
+              
+              if (result.success) {
+                // Show success message (matching original React toast)
+                alert('Message sent successfully! Thank you for contacting East Street Advisory. We\'ll be in touch within 24 hours.');
+                form.reset();
+              } else {
+                throw new Error(result.message || 'Form submission failed');
+              }
+            })
+            .catch(error => {
+              console.error('Form submission error:', error);
+              alert('There was a problem sending your message. Please try again or contact us directly at contact@eaststreetadvisory.com');
+            })
+            .finally(() => {
+              // Re-enable button and restore original text
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnText;
+            });
+          }
+          
+          // Initialize contact form when DOM is ready
+          function initContactForm() {
+            const contactForm = document.querySelector('form[data-contact-form]');
+            if (contactForm) {
+              contactForm.addEventListener('submit', handleContactFormSubmit);
+            }
+          }
+          
+          // Initialize contact form on load
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initContactForm);
+          } else {
+            initContactForm();
           }
         </script>
       </body>
