@@ -1,16 +1,19 @@
 import { z } from 'zod';
-import { industryMultiples } from './industryMultiples';
+import { getAllSectors, getSubSectorsForSector } from './sgxIndustryMultiples';
 
-// Get valid industry options for validation
-const validIndustries = industryMultiples.map(item => item.industry);
+// Get valid sector and sub-sector options for validation
+const validSectors = getAllSectors();
 
 // Zod schema for calculator inputs
 export const calculatorInputSchema = z.object({
-  industry: z.string()
-    .min(1, "Please select your industry")
-    .refine((value) => validIndustries.includes(value), {
-      message: "Please select a valid industry"
+  sector: z.string()
+    .min(1, "Please select your sector")
+    .refine((value) => validSectors.includes(value), {
+      message: "Please select a valid sector"
     }),
+  
+  subSector: z.string()
+    .min(1, "Please select your sub-sector"),
   
   annualRevenue: z.number()
     .min(1, "Annual revenue must be greater than 0")
@@ -19,30 +22,36 @@ export const calculatorInputSchema = z.object({
       message: "Please enter a valid revenue amount"
     }),
   
-  netProfitBeforeTax: z.number()
-    .min(-1000000000, "Please enter a realistic profit figure")
-    .max(1000000000, "Please enter a realistic profit figure")
+  ebitda: z.number()
+    .min(-1000000000, "Please enter a realistic EBITDA figure")
+    .max(1000000000, "Please enter a realistic EBITDA figure")
     .refine((value) => !isNaN(value), {
-      message: "Please enter a valid profit amount"
-    }),
-  
-  depreciationAmortisation: z.number()
-    .min(0, "Depreciation & amortisation cannot be negative")
-    .max(1000000000, "Please enter a realistic D&A figure")
-    .refine((value) => !isNaN(value), {
-      message: "Please enter a valid D&A amount"
+      message: "Please enter a valid EBITDA amount"
     })
 });
 
 export type CalculatorInputs = z.infer<typeof calculatorInputSchema>;
 
 // Individual field validation functions
-export const validateIndustry = (industry: string): string | null => {
-  if (!industry || industry.trim() === '') {
-    return "Please select your industry";
+export const validateSector = (sector: string): string | null => {
+  if (!sector || sector.trim() === '') {
+    return "Please select your sector";
   }
-  if (!validIndustries.includes(industry)) {
-    return "Please select a valid industry";
+  if (!validSectors.includes(sector)) {
+    return "Please select a valid sector";
+  }
+  return null;
+};
+
+export const validateSubSector = (subSector: string, sector: string): string | null => {
+  if (!subSector || subSector.trim() === '') {
+    return "Please select your sub-sector";
+  }
+  if (sector) {
+    const validSubSectors = getSubSectorsForSector(sector).map(item => item.subSector);
+    if (!validSubSectors.includes(subSector)) {
+      return "Please select a valid sub-sector for the chosen sector";
+    }
   }
   return null;
 };
@@ -62,41 +71,24 @@ export const validateRevenue = (revenue: number | string): string | null => {
   return null;
 };
 
-export const validateNetProfit = (netProfit: number | string): string | null => {
-  const num = typeof netProfit === 'string' ? parseFloat(netProfit) : netProfit;
+export const validateEBITDA = (ebitda: number | string): string | null => {
+  const num = typeof ebitda === 'string' ? parseFloat(ebitda) : ebitda;
   
   if (isNaN(num)) {
-    return "Please enter a valid profit amount";
+    return "Please enter a valid EBITDA amount";
   }
   if (num < -1000000000 || num > 1000000000) {
-    return "Please enter a realistic profit figure";
-  }
-  return null;
-};
-
-export const validateDepreciationAmortisation = (da: number | string): string | null => {
-  const num = typeof da === 'string' ? parseFloat(da) : da;
-  
-  if (isNaN(num)) {
-    return "Please enter a valid D&A amount";
-  }
-  if (num < 0) {
-    return "Depreciation & amortisation cannot be negative";
-  }
-  if (num > 1000000000) {
-    return "Please enter a realistic D&A figure";
+    return "Please enter a realistic EBITDA figure";
   }
   return null;
 };
 
 // Cross-field validation
-export const validateCrossFields = (inputs: CalculatorInputs): string[] => {
+export const validateCrossFields = (_inputs: CalculatorInputs): string[] => {
   const errors: string[] = [];
   
-  // Net Profit > Revenue check
-  if (inputs.netProfitBeforeTax > inputs.annualRevenue) {
-    errors.push("Net profit cannot exceed annual revenue");
-  }
+  // EBITDA margin validation (warning moved to business logic)
+  // No critical cross-field errors for EBITDA vs Revenue
   
   return errors;
 };
@@ -138,11 +130,18 @@ export const validateCalculatorForm = (inputs: Partial<CalculatorInputs>): Valid
   const errors: Record<string, string> = {};
   
   // Check if all required fields are present
-  if (!inputs.industry || inputs.industry === '') {
-    errors.industry = "Please select your industry";
+  if (!inputs.sector || inputs.sector === '') {
+    errors.sector = "Please select your sector";
   } else {
-    const industryError = validateIndustry(inputs.industry);
-    if (industryError) errors.industry = industryError;
+    const sectorError = validateSector(inputs.sector);
+    if (sectorError) errors.sector = sectorError;
+  }
+  
+  if (!inputs.subSector || inputs.subSector === '') {
+    errors.subSector = "Please select your sub-sector";
+  } else {
+    const subSectorError = validateSubSector(inputs.subSector, inputs.sector || '');
+    if (subSectorError) errors.subSector = subSectorError;
   }
   
   if (inputs.annualRevenue === undefined || inputs.annualRevenue === null || inputs.annualRevenue === 0) {
@@ -152,27 +151,20 @@ export const validateCalculatorForm = (inputs: Partial<CalculatorInputs>): Valid
     if (revenueError) errors.annualRevenue = revenueError;
   }
   
-  if (inputs.netProfitBeforeTax === undefined || inputs.netProfitBeforeTax === null) {
-    errors.netProfitBeforeTax = "Net profit before tax is required";
+  if (inputs.ebitda === undefined || inputs.ebitda === null) {
+    errors.ebitda = "EBITDA is required";
   } else {
-    const profitError = validateNetProfit(inputs.netProfitBeforeTax);
-    if (profitError) errors.netProfitBeforeTax = profitError;
-  }
-  
-  if (inputs.depreciationAmortisation === undefined || inputs.depreciationAmortisation === null) {
-    errors.depreciationAmortisation = "Depreciation & amortisation is required";
-  } else {
-    const daError = validateDepreciationAmortisation(inputs.depreciationAmortisation);
-    if (daError) errors.depreciationAmortisation = daError;
+    const ebitdaError = validateEBITDA(inputs.ebitda);
+    if (ebitdaError) errors.ebitda = ebitdaError;
   }
   
   // Cross-field validation (only if all fields are present and valid)
   let crossFieldErrors: string[] = [];
   if (Object.keys(errors).length === 0 && 
-      inputs.industry && 
+      inputs.sector && 
+      inputs.subSector &&
       inputs.annualRevenue !== undefined && 
-      inputs.netProfitBeforeTax !== undefined && 
-      inputs.depreciationAmortisation !== undefined) {
+      inputs.ebitda !== undefined) {
     crossFieldErrors = validateCrossFields(inputs as CalculatorInputs);
   }
   

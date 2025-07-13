@@ -13,8 +13,6 @@ interface ContactModalProps {
   valuationData: {
     industry: string;
     revenue: number;
-    netProfitBeforeTax: number;
-    depreciationAmortisation: number;
     ebitda: number;
     valuationRange: { min: number; max: number };
     midpoint: number;
@@ -91,11 +89,9 @@ WhatsApp: ${whatsapp}
 CALCULATOR INPUTS:
 Industry: ${valuationData.industry}
 Annual Revenue: ${formatCurrency(valuationData.revenue)}
-Net Profit Before Tax: ${formatCurrency(valuationData.netProfitBeforeTax)}
-Depreciation & Amortisation: ${formatCurrency(valuationData.depreciationAmortisation)}
+EBITDA: ${formatCurrency(valuationData.ebitda)}
 
 CALCULATED RESULTS:
-EBITDA: ${formatCurrency(valuationData.ebitda)}
 Estimated Valuation Range: ${formatCurrency(valuationData.valuationRange.min)} - ${formatCurrency(valuationData.valuationRange.max)}
 
 This lead was generated from the business valuation calculator on the website.

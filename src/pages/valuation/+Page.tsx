@@ -124,9 +124,9 @@ function Page() {
                     <div className="h-10 w-10 rounded-full bg-eaststreet-darkest text-white flex items-center justify-center text-lg font-bold">1</div>
                   </div>
                   <div>
-                    <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Enter Your Business Financials</h3>
+                    <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Choose Your Company's Sector</h3>
                     <p className="text-eaststreet-dark">
-                      Input your industry, annual revenue, net profit before tax, and depreciation & amortisation. These are the key metrics used in Singapore business valuations.
+                      Choose the sector and sub-sector that your company operates in. If none of the predefined sub-sectors describe your business exactly, choose the "General" sub-sector.
                     </p>
                   </div>
                 </div>
@@ -136,9 +136,9 @@ function Page() {
                     <div className="h-10 w-10 rounded-full bg-eaststreet-darkest text-white flex items-center justify-center text-lg font-bold">2</div>
                   </div>
                   <div>
-                    <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Calculate EBITDA</h3>
+                    <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Enter Your Business Financials</h3>
                     <p className="text-eaststreet-dark">
-                      We calculate your Earnings Before Interest, Tax, Depreciation & Amortisation (EBITDA) - the standard metric used for business valuations across most industries in Singapore.
+                      Input your annual revenue and EBITDA. These are the key metrics used in Singapore business valuations. If you don't know your company's EBITDA, you can approximate it using Net Operating Profit Before Tax
                     </p>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ function Page() {
                   <div>
                     <h3 className="text-xl text-eaststreet-darkest mb-2 font-serif">Apply Industry Multiple</h3>
                     <p className="text-eaststreet-dark">
-                      Your EBITDA is multiplied by an industry-specific multiple based on recent Singapore market data. Technology companies typically get higher multiples than retail businesses.
+                      Your EBITDA is multiplied by an industry-specific multiple based on recent SGX market data. Technology companies typically get higher multiples than retail businesses.
                     </p>
                   </div>
                 </div>

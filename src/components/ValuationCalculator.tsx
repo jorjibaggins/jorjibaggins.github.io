@@ -7,17 +7,17 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, Mail } from 'lucide-react';
 import ContactModal from './ContactModal';
 
-import { industryMultiples } from '@/utils/industryMultiples';
-import { calculateValuation, formatCurrency, formatNumber } from '@/utils/valuationCalculator';
+import { getAllSectors, getSubSectorsForSector } from '@/utils/sgxIndustryMultiples';
+import { calculateValuation, formatCurrency } from '@/utils/valuationCalculator';
 import { validateCalculatorForm, formatCurrencyInput, parseCurrencyInput } from '@/utils/inputValidation';
 import type { CalculatorInputs, ValuationResult } from '@/utils/valuationCalculator';
 
 const ValuationCalculator: React.FC = () => {
   const [inputs, setInputs] = useState<Partial<CalculatorInputs>>({
-    industry: undefined,
+    sector: undefined,
+    subSector: undefined,
     annualRevenue: undefined,
-    netProfitBeforeTax: undefined,
-    depreciationAmortisation: undefined
+    ebitda: undefined
   });
   
   const [result, setResult] = useState<ValuationResult | null>(null);
@@ -29,12 +29,17 @@ const ValuationCalculator: React.FC = () => {
   // Format currency display values
   const [displayValues, setDisplayValues] = useState({
     annualRevenue: '',
-    netProfitBeforeTax: '',
-    depreciationAmortisation: ''
+    ebitda: ''
   });
 
   const handleInputChange = (field: keyof CalculatorInputs, value: string | number) => {
-    if (field === 'industry') {
+    if (field === 'sector') {
+      setInputs(prev => ({ 
+        ...prev, 
+        [field]: value as string,
+        subSector: undefined // Reset sub-sector when sector changes
+      }));
+    } else if (field === 'subSector') {
       setInputs(prev => ({ ...prev, [field]: value as string }));
     } else {
       // Handle currency inputs
@@ -76,7 +81,7 @@ const ValuationCalculator: React.FC = () => {
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'calculator_completed', {
           event_category: 'calculator',
-          event_label: inputs.industry,
+          event_label: `${inputs.sector} - ${inputs.subSector}`,
           value: Math.round(calculationResult.discountedValuation)
         });
       }
@@ -90,15 +95,14 @@ const ValuationCalculator: React.FC = () => {
 
   const resetCalculator = () => {
     setInputs({
-      industry: undefined,
+      sector: undefined,
+      subSector: undefined,
       annualRevenue: undefined,
-      netProfitBeforeTax: undefined,
-      depreciationAmortisation: undefined
+      ebitda: undefined
     });
     setDisplayValues({
       annualRevenue: '',
-      netProfitBeforeTax: '',
-      depreciationAmortisation: ''
+      ebitda: ''
     });
     setResult(null);
     setErrors({});
@@ -113,7 +117,7 @@ const ValuationCalculator: React.FC = () => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'contact_modal_opened', {
         event_category: 'calculator',
-        event_label: inputs.industry
+        event_label: `${inputs.sector} - ${inputs.subSector}`
       });
     }
   };
@@ -128,26 +132,59 @@ const ValuationCalculator: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Industry Selection */}
-          <div className="space-y-2">
-            <Label htmlFor="industry" className="text-sm font-medium text-eaststreet-darkest">
-              Industry *
-            </Label>
-            <select 
-              value={inputs.industry || ""} 
-              onChange={(e) => handleInputChange('industry', e.target.value)}
-              className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              <option value="" disabled>Select your industry</option>
-              {industryMultiples.map((industry) => (
-                <option key={industry.industry} value={industry.industry}>
-                  {industry.industry}
+          {/* Sector and Sub-Sector Selection */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Sector Selection */}
+            <div className="space-y-2">
+              <Label htmlFor="sector" className="text-sm font-medium text-eaststreet-darkest">
+                Sector *
+              </Label>
+              <select 
+                value={inputs.sector || ""} 
+                onChange={(e) => handleInputChange('sector', e.target.value)}
+                className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="" disabled>Select your sector</option>
+                {getAllSectors().map((sector) => (
+                  <option key={sector} value={sector}>
+                    {sector}
+                  </option>
+                ))}
+              </select>
+              {errors.sector && (
+                <p className="text-sm text-red-600">{errors.sector}</p>
+              )}
+            </div>
+
+            {/* Sub-Sector Selection */}
+            <div className="space-y-2">
+              <Label htmlFor="subSector" className="text-sm font-medium text-eaststreet-darkest">
+                Sub-Sector *
+              </Label>
+              <select 
+                value={inputs.subSector || ""} 
+                onChange={(e) => handleInputChange('subSector', e.target.value)}
+                disabled={!inputs.sector}
+                className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <option value="" disabled>
+                  {inputs.sector ? 'Select your sub-sector' : 'First select a sector'}
                 </option>
-              ))}
-            </select>
-            {errors.industry && (
-              <p className="text-sm text-red-600">{errors.industry}</p>
-            )}
+                {inputs.sector && getSubSectorsForSector(inputs.sector).map((subSector) => (
+                  <option key={subSector.subSector} value={subSector.subSector}>
+                    {subSector.subSector}
+                  </option>
+                ))}
+              </select>
+              {errors.subSector && (
+                <p className="text-sm text-red-600">{errors.subSector}</p>
+              )}
+              {inputs.sector && (
+                <p className="text-xs text-gray-600 mt-1">
+                  Choose General if you're unsure which sub-sector your company falls into
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Financial Inputs */}
@@ -170,39 +207,25 @@ const ValuationCalculator: React.FC = () => {
               )}
             </div>
 
-            {/* Net Profit Before Tax */}
+            {/* EBITDA */}
             <div className="space-y-2">
-              <Label htmlFor="netProfit" className="text-sm font-medium text-eaststreet-darkest">
-                Net Profit Before Tax (SGD) *
+              <Label htmlFor="ebitda" className="text-sm font-medium text-eaststreet-darkest">
+                EBITDA (SGD) *
               </Label>
               <Input
-                id="netProfit"
+                id="ebitda"
                 type="text"
-                placeholder="e.g., 150000"
-                value={displayValues.netProfitBeforeTax}
-                onChange={(e) => handleInputChange('netProfitBeforeTax', e.target.value)}
+                placeholder="e.g., 175000"
+                value={displayValues.ebitda}
+                onChange={(e) => handleInputChange('ebitda', e.target.value)}
                 className="w-full"
               />
-              {errors.netProfitBeforeTax && (
-                <p className="text-sm text-red-600">{errors.netProfitBeforeTax}</p>
-              )}
-            </div>
-
-            {/* Depreciation & Amortisation */}
-            <div className="space-y-2 md:col-span-2">
-              <Label htmlFor="depreciation" className="text-sm font-medium text-eaststreet-darkest">
-                Depreciation & Amortisation (SGD) *
-              </Label>
-              <Input
-                id="depreciation"
-                type="text"
-                placeholder="e.g., 25000"
-                value={displayValues.depreciationAmortisation}
-                onChange={(e) => handleInputChange('depreciationAmortisation', e.target.value)}
-                className="w-full md:w-1/2"
-              />
-              {errors.depreciationAmortisation && (
-                <p className="text-sm text-red-600">{errors.depreciationAmortisation}</p>
+              <p className="text-xs text-gray-600 mt-1">
+                EBITDA = Earnings Before Interest, Taxes, Depreciation & Amortisation;
+                If you are unsure of your EBITDA, approximate it with Net Operating Profit Before Tax
+              </p>
+              {errors.ebitda && (
+                <p className="text-sm text-red-600">{errors.ebitda}</p>
               )}
             </div>
           </div>
@@ -225,13 +248,13 @@ const ValuationCalculator: React.FC = () => {
             <Button
               onClick={handleCalculate}
               disabled={isCalculating}
-              className="btn-primary flex-1 md:flex-none px-8 whitespace-nowrap flex items-center justify-center"
+              className="btn-primary flex-1 md:flex-none px-8 whitespace-nowrap flex flex-row items-center justify-center min-w-[220px] w-auto"
             >
               {isCalculating ? (
-                <>
+                <div className="flex items-center">
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Calculating...
-                </>
+                  <span>Calculating...</span>
+                </div>
               ) : (
                 'Calculate Valuation'
               )}
@@ -288,7 +311,7 @@ const ValuationCalculator: React.FC = () => {
                     <span className="font-medium">{formatCurrency(result.baseValuation)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Discount Applied (10%):</span>
+                    <span>Discount Applied ({inputs.annualRevenue! < 1000000 ? '20%' : '10%'}):</span>
                     <span className="font-medium">{formatCurrency(result.discountedValuation)}</span>
                   </div>
                 </div>
@@ -346,11 +369,9 @@ const ValuationCalculator: React.FC = () => {
           isOpen={showContactModal}
           onClose={() => setShowContactModal(false)}
           valuationData={{
-            industry: inputs.industry!,
+            industry: `${inputs.sector} - ${inputs.subSector}`,
             revenue: inputs.annualRevenue!,
-            netProfitBeforeTax: inputs.netProfitBeforeTax!,
-            depreciationAmortisation: inputs.depreciationAmortisation!,
-            ebitda: result.ebitda,
+            ebitda: inputs.ebitda!,
             valuationRange: result.valuationRange,
             midpoint: result.discountedValuation
           }}
