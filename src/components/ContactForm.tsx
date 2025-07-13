@@ -3,9 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useToast } from '@/components/ui/use-toast';
+import { Loader2 } from 'lucide-react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 // Define form validation schema with better validation
 const formSchema = z.object({
@@ -34,6 +37,9 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
   // Initialize form
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -46,15 +52,66 @@ const ContactForm = () => {
     }
   });
 
-  // Form submission is now handled by the HTML script in onRenderHtml.tsx
-  // This prevents the React form from submitting and interfering with the HTML script
-  const onSubmit = () => {
-    // No-op - form submission is handled by HTML script
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+
+    try {
+      // Prepare form data for web3forms (same as ContactModal)
+      const emailData = {
+        access_key: "74e8a036-1522-4498-944d-6893a47c2412",
+        name: data.name.trim(),
+        email: data.email.trim(),
+        phone: data.phone?.trim() || "Not provided",
+        company: data.company?.trim() || "Not provided",
+        message: data.message.trim(),
+        subject: `New inquiry from ${data.name} - East Street Advisory`,
+        from_name: "East Street Advisory Website",
+        _template: "table"
+      };
+
+      console.log('ContactForm: Sending email data:', emailData);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      console.log('ContactForm: Response status:', response.status);
+      const result = await response.json();
+      console.log('ContactForm: Response data:', result);
+      
+      if (result.success) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for contacting East Street Advisory. We'll be in touch within 24 hours.",
+        });
+        
+        // Reset form
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
+      
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again or contact us directly at contact@eaststreetadvisory.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <Form {...form}>
-      <form data-contact-form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form data-contact-form="true" onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
@@ -158,9 +215,17 @@ const ContactForm = () => {
         <div>
           <Button
             type="submit"
+            disabled={isSubmitting}
             className="btn-primary w-full flex justify-center items-center"
           >
-            Send Message
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              'Send Message'
+            )}
           </Button>
         </div>
       </form>

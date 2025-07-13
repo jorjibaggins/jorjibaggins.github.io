@@ -1,10 +1,10 @@
-import { getIndustryMultiple } from './industryMultiples';
+import { getSGXIndustryMultiple } from './sgxIndustryMultiples';
 
 export interface CalculatorInputs {
-  industry: string;
+  sector: string;
+  subSector: string;
   annualRevenue: number;
-  netProfitBeforeTax: number;
-  depreciationAmortisation: number;
+  ebitda: number;
 }
 
 export interface ValuationResult {
@@ -25,9 +25,9 @@ export interface ValidationResult {
   warnings: string[];
 }
 
-// EBITDA Calculation
-export const calculateEBITDA = (netProfitBeforeTax: number, depreciationAmortisation: number): number => {
-  return netProfitBeforeTax + depreciationAmortisation;
+// EBITDA is now provided directly
+export const getEBITDA = (ebitda: number): number => {
+  return ebitda;
 };
 
 // Base Valuation Calculation
@@ -35,13 +35,14 @@ export const calculateBaseValuation = (ebitda: number, industryMultiple: number)
   return ebitda * industryMultiple;
 };
 
-// Apply 10% Discount
-export const applyDiscount = (baseValuation: number, discountRate: number = 0.1): number => {
+// Apply Revenue-Based Discount (20% for <1M revenue, 10% for >=1M revenue)
+export const applyDiscount = (baseValuation: number, annualRevenue: number): number => {
+  const discountRate = annualRevenue < 1000000 ? 0.2 : 0.1;
   return baseValuation * (1 - discountRate);
 };
 
-// Calculate Valuation Range (+/- 20%)
-export const calculateValuationRange = (discountedValuation: number, rangePercentage: number = 0.2) => {
+// Calculate Valuation Range (+/- 30%)
+export const calculateValuationRange = (discountedValuation: number, rangePercentage: number = 0.3) => {
   const variance = discountedValuation * rangePercentage;
   return {
     min: Math.max(0, discountedValuation - variance), // Ensure minimum is not negative
@@ -54,39 +55,25 @@ export const validateBusinessLogic = (inputs: CalculatorInputs): ValidationResul
   const warnings: string[] = [];
   const errors: string[] = [];
 
-  // Net Profit > Revenue check
-  if (inputs.netProfitBeforeTax > inputs.annualRevenue) {
-    errors.push("Net profit cannot exceed annual revenue");
-  }
-
-  // D&A > Revenue check (unusual but possible)
-  if (inputs.depreciationAmortisation > inputs.annualRevenue) {
-    warnings.push("Depreciation & amortisation exceeds revenue - please verify this is correct");
+  // EBITDA > Revenue check (unusual but possible for some businesses)
+  if (inputs.ebitda > inputs.annualRevenue) {
+    warnings.push("EBITDA exceeds revenue - please verify this is correct");
   }
 
   // Negative EBITDA warning
-  const ebitda = calculateEBITDA(inputs.netProfitBeforeTax, inputs.depreciationAmortisation);
-  if (ebitda < 0) {
+  if (inputs.ebitda < 0) {
     warnings.push("Your EBITDA is negative, which may indicate financial challenges");
   }
 
-  // Very low profit margins
-  const profitMargin = inputs.netProfitBeforeTax / inputs.annualRevenue;
-  if (profitMargin < 0.01 && profitMargin > 0) {
-    warnings.push("Low profit margin detected - consider reviewing your financials");
+  // Very low EBITDA margins
+  const ebitdaMargin = inputs.ebitda / inputs.annualRevenue;
+  if (ebitdaMargin < 0.05 && ebitdaMargin > 0) {
+    warnings.push("Low EBITDA margin detected - consider reviewing your financials");
   }
 
-  // Extremely high profit margins (potential input error)
-  if (profitMargin > 0.5) {
-    warnings.push("Unusually high profit margin - please verify your inputs");
-  }
-
-  // Zero depreciation warning for certain industries
-  if (inputs.depreciationAmortisation === 0) {
-    const assetHeavyIndustries = ['Manufacturing', 'Construction', 'Transportation/Logistics', 'Real Estate'];
-    if (assetHeavyIndustries.includes(inputs.industry)) {
-      warnings.push("Zero depreciation is unusual for asset-heavy industries");
-    }
+  // Extremely high EBITDA margins (potential input error)
+  if (ebitdaMargin > 0.7) {
+    warnings.push("Unusually high EBITDA margin - please verify your inputs");
   }
 
   return {
@@ -99,16 +86,16 @@ export const validateBusinessLogic = (inputs: CalculatorInputs): ValidationResul
 // Main Valuation Calculator
 export const calculateValuation = (inputs: CalculatorInputs): ValuationResult => {
   // Get industry multiple
-  const industryMultiple = getIndustryMultiple(inputs.industry);
+  const industryMultiple = getSGXIndustryMultiple(inputs.subSector, inputs.sector);
   
-  // Calculate EBITDA
-  const ebitda = calculateEBITDA(inputs.netProfitBeforeTax, inputs.depreciationAmortisation);
+  // Use EBITDA directly
+  const ebitda = getEBITDA(inputs.ebitda);
   
   // Calculate base valuation
   const baseValuation = calculateBaseValuation(ebitda, industryMultiple);
   
-  // Apply discount
-  const discountedValuation = applyDiscount(baseValuation);
+  // Apply discount based on revenue size
+  const discountedValuation = applyDiscount(baseValuation, inputs.annualRevenue);
   
   // Calculate range
   const valuationRange = calculateValuationRange(discountedValuation);
