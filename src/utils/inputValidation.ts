@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { getAllSectors, getSubSectorsForSector } from './sgxIndustryMultiples';
+import { getAllSectors, getSubSectorsForSector } from './sgxCompsData';
 
 // Get valid sector and sub-sector options for validation
 const validSectors = getAllSectors();
