@@ -24,7 +24,7 @@ const Navbar = () => {
             <NavLink to="/services" label="Services" />
             <NavLink to="/about" label="About Us" />
             <NavLink to="/blog" label="Blog" />
-            <NavLink to="/valuation" label="Free Valuation" />
+            <NavLink to="/valuation" label="Valuation Calculator" />
             <NavLink to="/contact" label="Contact" />
           </div>
 
@@ -74,7 +74,7 @@ const Navbar = () => {
             <MobileNavLink to="/services" label="Services" />
             <MobileNavLink to="/about" label="About Us" />
             <MobileNavLink to="/blog" label="Blog" />
-            <MobileNavLink to="/valuation" label="Free Valuation" />
+            <MobileNavLink to="/valuation" label="Valuation Calculator" />
             <MobileNavLink to="/contact" label="Contact" />
           </div>
         </div>
