@@ -126,8 +126,25 @@ def fetch_stock_data(ticker):
         
         # Get valuation metrics
         trailing_pe = info.get("trailingPE")
-        ev_ebitda = info.get("enterpriseToEbitda")
         
+        # Calculate EV/EBITDA using detailed financial statements
+        ev_ebitda = None
+        enterprise_value = info.get("enterpriseValue")
+        
+        if enterprise_value:
+            try:
+                # Get detailed financials for accurate EBITDA
+                financials = stock.financials
+                if not financials.empty:
+                    # Look for EBITDA in detailed financials
+                    ebitda_mask = financials.index.str.contains('EBITDA', case=False, na=False)
+                    if ebitda_mask.any():
+                        ebitda_detailed = financials.loc[ebitda_mask].iloc[0, 0]
+                        if ebitda_detailed and ebitda_detailed > 0:
+                            ev_ebitda = enterprise_value / ebitda_detailed
+            except Exception as e:
+                # If detailed financials fail, fall back to info EV/EBITDA
+                ev_ebitda = info.get("enterpriseToEbitda")
         
         return {
             "Ticker": ticker,
