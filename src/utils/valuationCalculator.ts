@@ -1,4 +1,4 @@
-import { getSGXIndustryMultiple } from './sgxIndustryMultiples';
+import { getSGXIndustryMultiple } from './sgxCompsData';
 
 export interface CalculatorInputs {
   sector: string;

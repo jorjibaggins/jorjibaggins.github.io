@@ -7,7 +7,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, Mail } from 'lucide-react';
 import ContactModal from './ContactModal';
 
-import { getAllSectors, getSubSectorsForSector } from '@/utils/sgxIndustryMultiples';
+import { getAllSectors, getSubSectorsForSector } from '@/utils/sgxCompsData';
 import { calculateValuation, formatCurrency } from '@/utils/valuationCalculator';
 import { validateCalculatorForm, formatCurrencyInput, parseCurrencyInput } from '@/utils/inputValidation';
 import type { CalculatorInputs, ValuationResult } from '@/utils/valuationCalculator';

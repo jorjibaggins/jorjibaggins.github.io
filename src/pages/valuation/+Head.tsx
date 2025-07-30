@@ -77,7 +77,7 @@ function Head() {
               "name": "How accurate is this business valuation calculator?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our calculator provides a market-based estimate using industry multiples sourced from actual Singapore M&A transactions. While more accurate than generic online calculators, actual valuations can vary based on specific factors like market conditions, business quality, and buyer interest."
+                "text": "Our calculator provides a market-based estimate using industry multiples sourced from SGX market data. While more accurate than generic online calculators, actual valuations can vary based on specific factors like market conditions, business quality, and buyer interest."
               }
             },
             {
