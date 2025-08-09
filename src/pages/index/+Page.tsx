@@ -234,6 +234,23 @@ function Page() {
 
         {/* CTA Section */}
         <CtaSection />
+        
+        {/* SEO Content Section */}
+        <section className="bg-eaststreet-lightest py-12">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-xs opacity-60 leading-relaxed max-w-6xl mx-auto">
+              <p className="mb-3">
+                Singapore's leading business broker Singapore, East Street Advisory specializes in comprehensive M&A advisory Singapore services that deliver results. We're recognized as the best business broker Singapore for SME owners, with over S$2B in successfully closed transactions across 25+ industries.
+              </p>
+              <p className="mb-3">
+                Our expert team understands that finding the right business for sale Singapore opportunity or navigating a business takeover Singapore requires local market expertise and proven strategies. As your trusted SME business broker Singapore, we provide end-to-end support from initial valuation to final closing, ensuring you achieve the optimal outcome for your business transition.
+              </p>
+              <p>
+                Whether you're exploring strategic exits, succession planning, or growth through acquisition, we make the business takeover Singapore process seamless and efficient. Our extensive network of qualified buyers and sellers, combined with our deep understanding of Singapore's regulatory environment, positions us as the premier choice for business owners ready to take the next step. Sell your business with confidence – partner with East Street Advisory and discover why we're Singapore's most trusted M&A advisors.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
     </Layout>
   )
