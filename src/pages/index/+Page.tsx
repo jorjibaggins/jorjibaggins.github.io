@@ -27,7 +27,7 @@ function Page() {
             <div className="flex flex-col items-center text-center">
               <div className="max-w-3xl mb-10">
               <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-4" style={{ fontFamily: 'Forum, serif' }} >
-                Singapore's Trusted SME Business Broker
+                Singapore's Trusted #1 Business Broker
               </h1>
                 <p className="text-xl md:text-2xl text-white mb-8">
                   Connecting Business Buyers and Sellers Across Singapore
