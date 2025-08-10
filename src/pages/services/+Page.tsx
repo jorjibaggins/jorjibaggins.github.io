@@ -17,7 +17,7 @@ function Page() {
               Our Services
             </h1>
             <p className="text-xl text-eaststreet-gray max-w-4xl mx-auto">
-              East Street Advisory offers comprehensive M&A and business advisory services tailored to the unique needs of Singapore's SME business owners.
+              East Street Advisory offers comprehensive M&A and business advisory services tailored to the unique needs of Singapore's business owners.
             </p>
           </div>
         </section>

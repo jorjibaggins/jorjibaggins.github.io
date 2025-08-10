@@ -36,8 +36,8 @@ async function onRenderHtml(pageContext: PageContextServer) {
         <meta name="keywords" content="SME business broker Singapore, business acquisition Singapore, M&A advisory Singapore, sell business Singapore, business valuation, merger acquisition consultant" />
         
         <!-- Open Graph / Social Media Meta Tags -->
-        <meta property="og:title" content="East Street Advisory | Singapore's Top SME Business Broker" />
-        <meta property="og:description" content="Singapore's leading business broker firm for small and medium-sized enterprises. Strategic advisory to help sell your business." />
+        <meta property="og:title" content="East Street Advisory | Singapore's Top Business Broker" />
+        <meta property="og:description" content="Expert M&A advisory services for Singapore SMEs including business valuations, capital advisory, and succession planning. Strategic advisory to help sell your business." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/lovable-uploads/258b4ec3-7606-47e4-92b0-1f58126536cd.png" />
         <meta property="og:url" content="https://eaststreetadvisory.sg" />
@@ -55,7 +55,7 @@ async function onRenderHtml(pageContext: PageContextServer) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&display=swap">
         
-        ${headHtml ? dangerouslySkipEscape(headHtml) : '<title>East Street Advisory | Singapore\'s Top SME Business Broker</title><meta name="description" content="East Street Advisory - Leading business broker in Singapore helping owners maximize value through strategic transactions and expert advisory services." />'}
+        ${headHtml ? dangerouslySkipEscape(headHtml) : '<title>East Street Advisory | Singapore\'s Top Business Broker</title><meta name="description" content="East Street Advisory - Leading business broker in Singapore helping owners maximize value through strategic transactions and expert advisory services." />'}
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(pageHtml)}</div>

@@ -25,7 +25,7 @@ function Head() {
   if (!post) {
     return (
       <>
-        <title>East Street Advisory | Singapore's Top SME Business Broker</title>
+        <title>East Street Advisory | Singapore's Top Business Broker</title>
         <meta name="description" content="Blog post not found" />
       </>
     )
