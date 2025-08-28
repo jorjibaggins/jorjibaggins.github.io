@@ -240,7 +240,7 @@ function Page() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-xs opacity-60 leading-relaxed max-w-6xl mx-auto">
               <p className="mb-3">
-                Singapore's trusted business broker specializing in M&A and capital advisory, business valuations, and exit strategies. Over S$2B+ transactions across 25+ industries
+                Singapore's trusted business broker specializing in M&A and capital advisory, business valuations, and exit strategies. Over S$2B+ transactions closed across 25+ industries
               </p>
               <p className="mb-3">
                 Our expert team understands that finding the right business for sale Singapore opportunity or navigating a business takeover Singapore requires local market expertise and proven strategies. As your trusted SME business broker Singapore, we provide end-to-end support from initial valuation to final closing, ensuring you achieve the optimal outcome for your business transition.
