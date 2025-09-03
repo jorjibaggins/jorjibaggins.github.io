@@ -19,9 +19,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm opacity-80 mt-4">
-              East Street Advisory is Singapore's premier M&A advisory firm for SMEs, 
-              providing business broker services for business owners looking to sell their companies 
-              and maximise value.
+              Singapore's trusted business broker specializing in M&A and capital advisory, business valuations, and exit strategies. Over S$2B+ transactions closed across 25+ industries.
             </p>
           </div>
 
