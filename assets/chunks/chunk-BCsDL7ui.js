@@ -1,0 +1,1 @@
+import{j as s,d as r}from"./chunk-OaWcw_NV.js";const a=({title:e,centered:n=!1,className:t})=>s.jsx("h2",{className:r("section-heading font-serif font-normal",n&&"text-center center-heading",t),style:{fontFamily:"Forum, serif"},children:e});export{a as S};
