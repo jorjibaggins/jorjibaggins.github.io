@@ -4,7 +4,7 @@ export default {
   extends: [vikeReact],
   passToClient: ['pageProps', 'data'],
   prerender: true,
-  meta: { 
+  meta: {
     Page: {
       env: { server: true, client: true }
     }

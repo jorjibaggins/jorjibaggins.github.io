@@ -1,7 +1,80 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Navbar = () => {
+  useEffect(() => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navbar = document.getElementById('navbar');
+
+    // Mobile menu toggle
+    if (mobileMenuButton && mobileMenu && hamburgerIcon && closeIcon) {
+      let isOpen = false;
+
+      const toggleMobileMenu = () => {
+        isOpen = !isOpen;
+
+        if (isOpen) {
+          mobileMenu.classList.remove('hidden');
+          hamburgerIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      };
+
+      const closeMobileMenu = () => {
+        if (isOpen) {
+          isOpen = false;
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      };
+
+      mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+
+    // Scroll effect for navbar
+    const handleScroll = () => {
+      if (navbar) {
+        const offset = window.scrollY;
+
+        if (offset > 50) {
+          navbar.classList.add('shadow-md', 'py-3');
+          navbar.classList.remove('py-5');
+        } else {
+          navbar.classList.remove('shadow-md', 'py-3');
+          navbar.classList.add('py-5');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup function
+    return () => {
+      if (mobileMenuButton && mobileMenu) {
+        const toggleMobileMenu = () => {}; // Empty function for cleanup
+        mobileMenuButton.removeEventListener('click', toggleMobileMenu);
+        mobileNavLinks.forEach(link => {
+          const closeMobileMenu = () => {};
+          link.removeEventListener('click', closeMobileMenu);
+        });
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <nav 
       id="navbar"
