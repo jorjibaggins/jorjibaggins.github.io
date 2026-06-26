@@ -34,7 +34,7 @@ const Footer = () => {
                 <a href="/services" className="opacity-80 hover:opacity-100 transition-opacity">Services</a>
               </li>
               <li>
-                <a href="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</a>
+                <a href="https://www.thebeautystack.com" className="opacity-80 hover:opacity-100 transition-opacity">About Us</a>
               </li>
               {/* <li>
                 <a href="/case-studies" className="opacity-80 hover:opacity-100 transition-opacity">Case Studies</a>
